@@ -3,7 +3,7 @@
 #==========================================================
 #title          :server.py
 #description    :server program for data exfiltration
-#author:        :s.vidalis@herts.ac.uk
+#author:        :someone (I cannot remember)
 #timestamp      :201511202334Z
 #version        :0.0.1
 #usage          :python server.py
