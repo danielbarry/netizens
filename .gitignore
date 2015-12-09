@@ -1,7 +1,13 @@
-cmake_install.cmake
-CMakeCache.txt
-Makefile
+# Ignore specific files
+*TalentlessHack
 
-CMakeFiles/*
+# Ignore all named files
+*CMakeCache.txt
+*Makefile
 
+# Ignore all named folders
+**/CMakeFiles/*
+
+# Ignore extensions
+*.cmake
 *.pdf
