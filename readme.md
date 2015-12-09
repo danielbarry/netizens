@@ -29,11 +29,27 @@ The group was started in November 2015 by Stilianos Vidalis as a pre-cursor to t
 
 The very basics you will require is the following:
 
-    sudo apt-get install cmake ccmake gcc g++ git
+    sudo apt-get install cmake ccmake gcc g++ git python
 
 To compile documents you will require:
 
     sudo apt-get install pandoc
+
+### Building C/C++ files
+
+To compile, you'll first need to create a `MakeFile` with the following command in the directory you want to compile:
+
+    cmake .
+
+Optionally, you can set the flags of the compiler with the following command:
+
+    ccmake .
+
+Then you'll want to build the files:
+
+    make
+
+You should now have built the files correctly.
 
 3) Development
 --------------
