@@ -1,0 +1,144 @@
+#!/bin/bash
+
+##################################################################################
+## Title:	footprt                                                         ##
+## Date:	21.10.2014							##
+## Author:	Stilianos Vidalis						##
+## Descritpion:	Script demonstrating the automation of footprinting activities  ##
+##		using the BASH shell. Logic and data flow is intentional.	##
+##################################################################################
+
+##################################################################################
+## Clause for ensuring positional parameter is given by the user.		##
+##################################################################################
+if [ $# -lt 1 ]; then
+	echo "Usage: footprt [domain name]"
+	exit 1
+fi
+
+##################################################################################
+## Perform Network Enumeration by interrogating whois servers in order to 	##
+## identify domains relating to the target. User to authorise findings for DNS 	##
+## interrogation.								##
+## Variables: DOMAIN_ENTRY, ANSWER						##
+## Input Files: 								##
+## Output Files: RelatedDomains, Domains2Interrogate				##
+##################################################################################
+echo
+echo "--------------------------------------------------------------------"
+echo "Footprinting " $1
+echo "--------------------------------------------------------------------"
+
+#---> you can add more whois commands or you can improve the following.      <---#
+whois $1 | grep -e Server\ Name -e Domain\ Name | cut -d: -f2 > RelatedDomains
+whois $1 | grep -A 1 Domain: | tail -n 1 | cut -f2 >> RelatedDomains
+
+#---> the following if statement will exit the program if the whois search   <---#
+#---> is not successful.						     <---#
+if [ ! -f RelatedDomains ]
+then
+	echo "No such domain"
+	exit 1
+fi
+
+#---> the following for statement will ask the user to confirm which whois   <---#
+#---> records to include for DNS interrogation.				     <---#
+for DOMAIN_ENTRY in `cat RelatedDomains`
+do
+	read -p "[*]Identified $DOMAIN_ENTRY. Footprint? [y/n] " ANSWER
+	if [[ $ANSWER = "y" ]]
+	then
+		echo $DOMAIN_ENTRY >> Domains2Interrogate
+	fi
+done
+
+echo "--------------------------------------------------------------------"
+echo "Interrogating" `wc -l < Domains2Interrogate` "domains."
+echo
+
+sleep 1
+
+##################################################################################
+## Perform DNS interrogation and display a list of computer names and their IP  ##
+## address that will be further investigated.					##
+## Variables: SERVER, IP							##
+## Input Files: Domains2Interrogate						##
+## Output Files: ServerIPs							##
+##################################################################################
+
+#---> the following for statement will extract target IP addresses from DNS. <---#
+#---> by default it is only looking for name servers. you can improve that   <---#
+#---> to include other types of DNS records.                                 <---#
+for SERVER in `cat Domains2Interrogate`
+do
+	dig $SERVER | grep $SERVER | grep -v ";" | cut -f6 >> ServerIPs
+done
+
+echo "Identified" `wc -l < ServerIPs` "Server IP addresses in target's DNS."
+echo
+
+#---> the next for statement displays a list of notable servers and their IP <---#
+#---> address. you can certainly improve the format of the output            <---#
+for IP in `cat ServerIPs`; do echo "[*] $IP -> " `dig -x $IP +short`; done
+
+sleep 2
+
+##################################################################################
+## Perform NETRECON on identified subnets and store output on separate files.	##
+## Variables: STR1, STR2, SUBNET, TARGET					##
+## Input Files: ServerIPs							##
+## Output Files: NetIPs, Subnets, $SUBNET					##
+##################################################################################
+echo
+echo "--------------------------------------------------------------------"
+echo "Starting NETRECON"
+echo "--------------------------------------------------------------------"
+
+#---> the following statement extract the first three field from every IP    <---#
+#---> that was identified from teh dns interrogation.			     <---#
+cut -d. -f 1,2,3 < ServerIPs > NetIPs
+
+touch Subnets
+echo "Analysing extracted DNS records for identifying subnets"
+
+#--->the next while loop identifies unique IP ranges			     <---#
+cat NetIPs | while read STR1
+do
+	STR2="`grep $STR1 Subnets`"
+
+	if [[ $STR1 == $STR2 ]]
+	then
+		echo "[*] Found and removed duplicate subnet entry." > /dev/null
+	else
+		echo "Identified "$STR1".0/24 subnet"
+		echo $STR1 >> Subnets
+	fi
+done  	
+echo
+
+#---> the next while statement perform the netrecon using nmap and SYN      <---#
+
+cat Subnets | while read SUBNET
+do
+	touch $SUBNET-
+	TARGET="`echo $SUBNET\".0/24\"`"
+	echo "Searching for live nodes in $TARGET"
+	nmap -sn -PS $TARGET > $SUBNET-
+	echo `cat $SUBNET- | tail -n 1 | cut -d: -f2`" in $TARGET"
+	cat $SUBNET- | grep report | cut -d" " -f5,6 > $SUBNET--
+	rm $SUBNET-
+done
+##################################################################################
+## Garbage collection...							##
+##################################################################################
+DIR_NAME="$1-`date +"%F"`-`date +"%T"`"
+mkdir $DIR_NAME
+mv *.*.*-- $DIR_NAME
+
+rm RelatedDomains
+rm Domains2Interrogate
+rm ServerIPs
+rm NetIPs
+rm Subnets
+
+exit 0
