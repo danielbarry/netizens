@@ -11,3 +11,6 @@
 # Ignore extensions
 *.cmake
 *.pdf
+
+# Vagrant
+.vagrant/
