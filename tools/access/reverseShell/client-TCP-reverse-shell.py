@@ -3,7 +3,7 @@
 #========================================================
 #title          :client-TCP-reverse-shell.py
 #description    :client side reverse shell
-#author:        :s.vidalis@herts.ac.uk
+#author:        :someone (I cannot remember)
 #timestamp      :201511172101Z
 #version        :0.0.1
 #usage          :python client-TCP-reverse-shell.py
