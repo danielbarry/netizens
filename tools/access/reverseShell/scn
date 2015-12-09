@@ -1,0 +1,85 @@
+#!/bin/bash
+
+##########################################################################
+## Title:	scn							##
+## Date:	31.10.2014						##
+## Author:	Stilianos Vidalis					##
+## Descritpion:	Script demonstrating the automation of scanning 	##
+##		activities using the BASH shell. Logic and data flow 	##
+##		is intentional.						##
+##########################################################################
+
+##########################################################################
+## Clause for ensuring positional parameters are given by the user.	##
+##########################################################################
+if [ $# -lt 1 ]; then
+	echo "Usage: scn [base directory]"
+	exit 1
+fi
+
+##########################################################################
+## Analyse user input to identify base directory and subnet files	##
+##########################################################################
+
+clear
+
+BASE="$1"
+No="`(cd $BASE; ls -1 | grep -c "\-\-")`"
+echo "=================================================="
+echo "Found $No Subnet Files in $BASE"
+echo "=================================================="
+
+PS3="Select a number: "
+touch "$BASE/Quit--"
+
+until [ "$SUBDOMAIN" = "Quit--" ]
+do
+	echo "Which subnet do you want to scan?"
+	select SUBDOMAIN in `cd $BASE; ls -1 | grep "\-\-"`;
+	do
+		case $SUBDOMAIN in
+		"Quit--")
+			echo "Exiting."
+			break
+			;;
+		*)	
+			clear
+			echo "=================================================="
+			read -p "Perform Targeted(1) or General(2) scan? [1/2] " ANSWER
+			if [[ $ANSWER = "1" ]]
+			then
+				read -p "What service are you looking for? [port] " PORT
+				SERVICE=`cat /etc/services | grep -w $PORT | cut -f1 | head -n 1`
+				cat "$BASE/$SUBDOMAIN" | while read TARGET
+				do
+					echo "Scanning for $SERVICE servers..."
+					nmap -Pn -sS -sV $TARGET -p $PORT -oG $SERVICE.rs --append-output > /dev/null
+					
+				done
+			elif [[ $ANSWER = "2" ]]
+			then
+				touch GeneralScanResults.rs
+				cat "$BASE/$SUBDOMAIN" | while read TARGET
+				do
+					echo "Scanning..."
+					nmap -Pn -sS -sV $TARGET -oG GeneralScanResults.rs --append-output > /dev/null
+				done
+			fi
+			;;
+		esac
+		echo "Scanning complete."
+		echo "=================================================="
+		break
+	done
+	
+done
+
+##################################################################################
+## Garbage collection...                                                        ##
+##################################################################################
+DIR_NAME="Scan-`date +"%F"`-`date +"%T"`"
+mkdir $DIR_NAME
+mv *.rs $DIR_NAME
+
+rm "$BASE/Quit--"
+
