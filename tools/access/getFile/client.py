@@ -3,7 +3,7 @@
 #========================================================
 #title          :client.py
 #description    :client program for exfiltrating data
-#author:        :soneone (I cannot remember)
+#author:        :someone (I cannot remember)
 #timestamp      :201511202321Z
 #version        :0.0.1
 #usage          :python client.py
