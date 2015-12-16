@@ -1,8 +1,8 @@
 #!/bin/bash
-#title          ssh-tunnel.sh
+#title          macchanger.sh
 #description    Change Media Access Control address of a specific network interface.
 #author:        Robert Northard
-#usage          ./macchange.sh -i <interface> -m <new mac address>
+#usage          ./macchanger.sh -i <interface> -m <new mac address>
 #
 if [ "$(id -u)" != "0" ]; then
 	echo "This script must be run as root."
