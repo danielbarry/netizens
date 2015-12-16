@@ -1,8 +1,8 @@
 #!/bin/bash
 #title          ssh-tunnel.sh
 #description    SSH tunnel/proxy enable and configure SOCKS proxy for default wifi/ethernet network interfaces for OSX.
-#author:        :Robert Northard
-#usage          :./ssh-tunnel.sh username@host
+#author:        Robert Northard
+#usage          ./ssh-tunnel.sh username@host
 #
 if [ "$(id -u)" != "0" ]; then
 	echo "[!] This script must be run as root."
