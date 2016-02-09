@@ -21,4 +21,13 @@ public class Bank{
      *       help, version, etc. */
     /* TODO: Now we must work out who to send the options to. */
   }
+
+  /**
+   * run()
+   *
+   * Runs the modules specified by the command line parameters.
+   **/
+  public void run(){
+    /* TODO: Run the modules we found in the command line parameters. */
+  }
 }

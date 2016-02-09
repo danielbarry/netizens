@@ -38,6 +38,8 @@ public class Main{
     );
     /* Give the arguments to the next layer to handle */
     Bank bank = new Bank(args);
+    /* Run the units */
+    bank.run();
     /* This case would be an ERROR exit, as exiting should be planned */
     exit(EXIT_STATUS.ERROR);
   }
