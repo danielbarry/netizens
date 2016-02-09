@@ -27,6 +27,7 @@ public class Bank{
     /* Store mode */
     MODE mode = MODE.NONE;
     /* Variables parsed */
+    /* TODO: Set to default values defined by JSON. */
     int x = 0;
     int y = 0;
     int w = 0;
