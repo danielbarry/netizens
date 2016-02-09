@@ -160,7 +160,7 @@ public class Bank{
         Debug.println("x -> " + x);
         Debug.println("y -> " + y);
         Debug.println("z -> " + z);
-        new UI();
+        new UI(x, y, w, z);
         break;
       case VERSION :
         version();
