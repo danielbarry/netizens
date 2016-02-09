@@ -156,6 +156,10 @@ public class Bank{
         /* TODO: Write this section. */
         break;
       case UI :
+        Debug.println("w -> " + w);
+        Debug.println("x -> " + x);
+        Debug.println("y -> " + y);
+        Debug.println("z -> " + z);
         new UI();
         break;
       case VERSION :
