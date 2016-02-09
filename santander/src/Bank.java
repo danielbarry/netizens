@@ -24,36 +24,53 @@ public class Bank{
    * @param args The arguments give to the program.
    **/
   public Bank(String[] args){
-    /* Store information that may be helpful later */
+    /* Store mode */
     MODE mode = MODE.NONE;
+    /* Variables parsed */
+    int x = 0;
+    int y = 0;
+    int w = 0;
+    int z = 0;
     /* Firstly, parse all arguments and draw all the data from them */
-    for(int x = 0; x < args.length; x++){
+    for(int cnt = 0; cnt < args.length; cnt++){
       /* Is the string large enough to check? */
-      if(args[x].length() > 0){
+      if(args[cnt].length() > 0){
         /* Is this an argument? */
-        if(args[x].charAt(0) == '-'){
+        if(args[cnt].charAt(0) == '-'){
           /* Is the next section large enough to check? */
-          if(args[x].length() > 1){
+          if(args[cnt].length() > 1){
             /* Is this a small argument or full argument? */
-            if(args[x].charAt(1) == '-'){
+            if(args[cnt].charAt(1) == '-'){
               /* Convert the values */
-              switch(args[x].substring(2)){
+              switch(args[cnt].substring(2)){
+                case "height" :
+                  args[cnt] = "-z";
+                  break;
                 case "help" :
-                  args[x] = "-h";
+                  args[cnt] = "-h";
                   break;
                 case "server" :
-                  args[x] = "-s";
+                  args[cnt] = "-s";
                   break;
                 case "ui" :
-                  args[x] = "-u";
+                  args[cnt] = "-u";
                   break;
                 case "version" :
-                  args[x] = "-v";
+                  args[cnt] = "-v";
+                  break;
+                case "width" :
+                  args[cnt] = "-w";
+                  break;
+                case "xpos" :
+                  args[cnt] = "-x";
+                  break;
+                case "ypos" :
+                  args[cnt] = "-y";
                   break;
               }
             }
             /* Check the values */
-            switch(args[x].charAt(1)){
+            switch(args[cnt].charAt(1)){
               case 'h' :
                 /* Override any mode other than error */
                 if(mode != MODE.ERROR){
@@ -78,12 +95,23 @@ public class Bank{
                   mode = MODE.VERSION;
                 }
                 break;
+              case 'w' :
+                /* TODO: Parse value. */
+                break;
+              case 'x' :
+                /* TODO: Parse value. */
+                break;
+              case 'y' :
+                /* TODO: Parse value. */
+                break;
+              case 'z' :
+                /* TODO: Parse value. */
+                break;
               default :
                 /* If there has been an issue, go into error mode */
                 mode = MODE.ERROR;
                 break;
             }
-
           }
         }
       }
@@ -98,7 +126,7 @@ public class Bank{
         /* TODO: Write this section. */
         break;
       case UI :
-        /* TODO: Write this section. */
+        new UI();
         break;
       case VERSION :
         version();
@@ -146,7 +174,10 @@ public class Bank{
       "\n" +
       "\n    --ui        -u" +
       "\n      OPTions" +
-      "\n        TODO: To be written." +
+      "\n        --xpos      -x    Horizontal position of window" +
+      "\n        --ypos      -y    Vertical position of window" +
+      "\n        --width     -w    Width of window" +
+      "\n        --height    -z    Height of window" +
       "\n    --version   -v" +
       "\n      Displays program version." +
       "\n" +
