@@ -1,5 +1,7 @@
 package netizens.bank;
 
+import netizens.bank.utils.Debug;
+
 /**
  * Bank.java
  *
@@ -20,6 +22,7 @@ public class Bank{
     /* TODO: Decide if any immediate action is required, i.e. bad paramter,
      *       help, version, etc. */
     /* TODO: Now we must work out who to send the options to. */
+    Debug.println("Parse arguments");
   }
 
   /**
@@ -29,5 +32,6 @@ public class Bank{
    **/
   public void run(){
     /* TODO: Run the modules we found in the command line parameters. */
+    Debug.println("Run modules");
   }
 }
