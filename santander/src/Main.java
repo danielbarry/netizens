@@ -3,8 +3,8 @@ package netizens.bank;
 /**
  * Main.java
  *
- * Entry class into the program, responsible for dealing with any input
- * parameters to the program.
+ * Entry class into the program, responsible for handling the stopping and
+ * starting of the program.
  **/
 public class Main{
   public enum EXIT_STATUS{
