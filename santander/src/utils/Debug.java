@@ -1,13 +1,13 @@
 package netizens.bank.utils;
 
+import netizens.bank.utils.Clock;
+
 /**
  * Debug.java
  *
  * This class offers debug options to be used in the terminal.
  **/
 public class Debug{
-  private static final String DEBUG_HEAD = "[>>] ";
-
   /**
    * print()
    *
@@ -16,7 +16,7 @@ public class Debug{
    * @param msg The message to be printed to the terminal.
    **/
   public static void print(String msg){
-    System.out.print(DEBUG_HEAD + msg);
+    System.out.print(getDebugHead() + msg);
   }
 
   /**
@@ -27,6 +27,17 @@ public class Debug{
    * @param msg The message to be printed to the terminal.
    **/
   public static void println(String msg){
-    System.out.println(DEBUG_HEAD + msg);
+    System.out.println(getDebugHead() + msg);
+  }
+
+  /**
+   * getDebugHead()
+   *
+   * Gets the information to be printed at the start of the document.
+   *
+   * @return The header debug String.
+   **/
+  private static String getDebugHead(){
+    return "[" + Clock.getTimeSinceStart() + "] ";
   }
 }
