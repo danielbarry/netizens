@@ -3,6 +3,7 @@ package netizens.bank;
 import netizens.bank.Main;
 import netizens.bank.ui.UI;
 import netizens.bank.utils.Debug;
+import netizens.bank.utils.SafeParse;
 
 /**
  * Bank.java
@@ -97,16 +98,44 @@ public class Bank{
                 }
                 break;
               case 'w' :
-                /* TODO: Parse value. */
+                /* Check if value could exist */
+                if(++cnt < args.length){
+                  /* Parse value */
+                  w = SafeParse.getInt(args[cnt], w);
+                }else{
+                  System.err.println("No arguments for width");
+                  Main.exit(Main.EXIT_STATUS.ERROR);
+                }
                 break;
               case 'x' :
-                /* TODO: Parse value. */
+                /* Check if value could exist */
+                if(++cnt < args.length){
+                  /* Parse value */
+                  x = SafeParse.getInt(args[cnt], x);
+                }else{
+                  System.err.println("No arguments for xpos");
+                  Main.exit(Main.EXIT_STATUS.ERROR);
+                }
                 break;
               case 'y' :
-                /* TODO: Parse value. */
+                /* Check if value could exist */
+                if(++cnt < args.length){
+                  /* Parse value */
+                  y = SafeParse.getInt(args[cnt], y);
+                }else{
+                  System.err.println("No arguments for ypos");
+                  Main.exit(Main.EXIT_STATUS.ERROR);
+                }
                 break;
               case 'z' :
-                /* TODO: Parse value. */
+                /* Check if value could exist */
+                if(++cnt < args.length){
+                  /* Parse value */
+                  z = SafeParse.getInt(args[cnt], z);
+                }else{
+                  System.err.println("No arguments for height");
+                  Main.exit(Main.EXIT_STATUS.ERROR);
+                }
                 break;
               default :
                 /* If there has been an issue, go into error mode */
