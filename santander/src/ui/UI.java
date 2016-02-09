@@ -1,4 +1,4 @@
-package netizens.bank.util.ui;
+package netizens.bank.ui;
 
 /**
  * UI.java
