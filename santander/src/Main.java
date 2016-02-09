@@ -19,10 +19,19 @@ public class Main{
    * @param args The arguments accepted from the command line.
    **/
   public static void main(String[] args) throws InterruptedException{
+    /* Hook into the shutdown hook for this runtime */
+    /* NOTE: No code before this point! */
     Runtime.getRuntime().addShutdownHook(
+      /* Run shutdown code in a non-breaking thread */
       new Thread(){
+        /**
+         * run()
+         *
+         * The code to be run in the case of an UNPLANNED exit.
+         **/
         @Override
         public void run(){
+          /* Warn ourselves of what has happened so that we may handle it */
           exit(EXIT_STATUS.UNPLANNED);
         }
       }
@@ -40,6 +49,7 @@ public class Main{
    * shutting down.
    **/
   public static void exit(EXIT_STATUS status){
+    /* Check what to do in each status */
     switch(status){
       case PLANNED :
         /* TODO: Shutdown resources as safely as possible, we have all the time
