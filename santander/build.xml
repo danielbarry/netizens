@@ -3,6 +3,7 @@
   <description>A simple bank demonstration program</description>
 
   <property name="source.dir" location="src/" />
+  <property name="json.dir" location="src/settings/" />
   <property name="build.dir" location="bin/" />
   <property name="jar.dir" location="dist/" />
   <property name="doc.dir" location="doc/" />
@@ -30,10 +31,15 @@
   <target name="jar" depends="compile" description="Create Jar File">
     <mkdir dir="${jar.dir}" />
     <jar destfile="${jar.dir}/${main.jar}" basedir="${build.dir}">
-        <manifest>
-          <attribute name="Main-Class" value="${main.class}" />
-        </manifest>
-      </jar>
+      <manifest>
+        <attribute name="Main-Class" value="${main.class}" />
+      </manifest>
+    </jar>
+    <copy todir="${jar.dir}">
+      <fileset dir="${json.dir}">
+        <include name="**/*.json" />
+      </fileset>
+    </copy>
   </target>
 
   <target name="run" depends="jar" description="Run Java App">
