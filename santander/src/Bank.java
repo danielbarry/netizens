@@ -1,9 +1,16 @@
 package netizens.bank;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import netizens.bank.Main;
 import netizens.bank.ui.UI;
 import netizens.bank.utils.Debug;
 import netizens.bank.utils.SafeParse;
+import org.json.JSONTokener;
+import org.json.JSONObject;
 
 /**
  * Bank.java
@@ -43,6 +50,9 @@ public class Bank{
             if(args[cnt].charAt(1) == '-'){
               /* Convert the values */
               switch(args[cnt].substring(2)){
+                case "config" :
+                  args[cnt] = "-c";
+                  break;
                 case "height" :
                   args[cnt] = "-z";
                   break;
@@ -65,6 +75,31 @@ public class Bank{
             }
             /* Check the values */
             switch(args[cnt].charAt(1)){
+              case 'c' :
+                /* Check if value could exist */
+                if(++cnt < args.length){
+                  /* Pre-define file variables with null */
+                  File file = null;
+                  InputStream in = null;
+                  /* Try to load in file */
+                  try{
+                    file = new File(args[cnt]);
+                    in = new FileInputStream(file);
+                  }catch(FileNotFoundException e){
+                    System.err.println("Config not found");
+                    Main.exit(Main.EXIT_STATUS.ERROR);
+                  }
+                  /* Make sure that we definitely caught the exception */
+                  if(file != null && in != null){
+                    Debug.println("Parsing String to JSONTokener");
+                    /* Load main configuration file */
+                    JSONTokener jTokener = new JSONTokener(in);
+                  }
+                }else{
+                  System.err.println("No arguments for width");
+                  Main.exit(Main.EXIT_STATUS.ERROR);
+                }
+                break;
               case 'h' :
                 /* Override any mode other than error */
                 if(mode != MODE.ERROR){
@@ -164,10 +199,11 @@ public class Bank{
       "\n" +
       "\n    --server    -s" +
       "\n      OPTions" +
-      "\n        TODO: To be written." +
+      "\n        --config    -c    Main program configuration" +
       "\n" +
       "\n    --ui        -u" +
       "\n      OPTions" +
+      "\n        --config    -c" +
       "\n        --width     -w    Width of window" +
       "\n        --height    -z    Height of window" +
       "\n    --version   -v" +
