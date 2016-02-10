@@ -16,6 +16,8 @@ Contents
 
 This repository has been created to capture the code written by the pen-testing team in order to collaborate and improve ideas.
 
+Please see [this](wiki/git.md) page on how to use Git.
+
 ### History
 
 The group was started in November 2015 by Stilianos Vidalis as a pre-cursor to the Security orientated course at the University of Hertfordshire.
