@@ -1,5 +1,7 @@
 package netizens.bank;
 
+import netizens.bank.utils.Debug;
+
 /**
  * Main.java
  *
@@ -38,10 +40,8 @@ public class Main{
     );
     /* Give the arguments to the next layer to handle */
     Bank bank = new Bank(args);
-    /* Run the units */
-    bank.run();
-    /* This case would be an ERROR exit, as exiting should be planned */
-    exit(EXIT_STATUS.ERROR);
+    /* Program can go to natural end */
+    Debug.println("Setup complete");
   }
 
   /**
