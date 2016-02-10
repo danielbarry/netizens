@@ -29,8 +29,6 @@ public class Bank{
     MODE mode = MODE.NONE;
     /* Variables parsed */
     /* TODO: Set to default values defined by JSON. */
-    int x = 0;
-    int y = 0;
     int w = 0;
     int z = 0;
     /* Firstly, parse all arguments and draw all the data from them */
@@ -62,12 +60,6 @@ public class Bank{
                   break;
                 case "width" :
                   args[cnt] = "-w";
-                  break;
-                case "xpos" :
-                  args[cnt] = "-x";
-                  break;
-                case "ypos" :
-                  args[cnt] = "-y";
                   break;
               }
             }
@@ -107,26 +99,6 @@ public class Bank{
                   Main.exit(Main.EXIT_STATUS.ERROR);
                 }
                 break;
-              case 'x' :
-                /* Check if value could exist */
-                if(++cnt < args.length){
-                  /* Parse value */
-                  x = SafeParse.getInt(args[cnt], x);
-                }else{
-                  System.err.println("No arguments for xpos");
-                  Main.exit(Main.EXIT_STATUS.ERROR);
-                }
-                break;
-              case 'y' :
-                /* Check if value could exist */
-                if(++cnt < args.length){
-                  /* Parse value */
-                  y = SafeParse.getInt(args[cnt], y);
-                }else{
-                  System.err.println("No arguments for ypos");
-                  Main.exit(Main.EXIT_STATUS.ERROR);
-                }
-                break;
               case 'z' :
                 /* Check if value could exist */
                 if(++cnt < args.length){
@@ -157,8 +129,6 @@ public class Bank{
         break;
       case UI :
         Debug.println("w -> " + w);
-        Debug.println("x -> " + x);
-        Debug.println("y -> " + y);
         Debug.println("z -> " + z);
         new UI(x, y, w, z);
         break;
@@ -176,16 +146,6 @@ public class Bank{
         break;
     }
     Debug.println("Parse arguments");
-  }
-
-  /**
-   * run()
-   *
-   * Runs the modules specified by the command line parameters.
-   **/
-  public void run(){
-    /* TODO: Run the modules we found in the command line parameters. */
-    Debug.println("Run modules");
   }
 
   /**
@@ -208,8 +168,6 @@ public class Bank{
       "\n" +
       "\n    --ui        -u" +
       "\n      OPTions" +
-      "\n        --xpos      -x    Horizontal position of window" +
-      "\n        --ypos      -y    Vertical position of window" +
       "\n        --width     -w    Width of window" +
       "\n        --height    -z    Height of window" +
       "\n    --version   -v" +

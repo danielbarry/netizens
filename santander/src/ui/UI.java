@@ -12,7 +12,7 @@ public class UI{
    * The constructor for the UI class, responsible for initialising all values
    * required and starting the UI.
    **/
-  public UI(int xPos, int yPos, int width, int height){
+  public UI(int width, int height){
     /* TODO: Start the UI. */
   }
 }
