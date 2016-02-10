@@ -7,12 +7,12 @@
 
 # Ignore all named folders
 **/CMakeFiles/*
+**/dist/*
 **/doc/*
 
 # Ignore extensions
 *.class
 *.cmake
-*.jar
 *.pdf
 
 # Vagrant
