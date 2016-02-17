@@ -34,9 +34,6 @@ public class Bank{
     /* Store mode */
     MODE mode = MODE.NONE;
     /* Variables parsed */
-    /* TODO: Set to default values defined by JSON. */
-    int w = 0;
-    int z = 0;
     /* Firstly, parse all arguments and draw all the data from them */
     for(int cnt = 0; cnt < args.length; cnt++){
       /* Is the string large enough to check? */
@@ -52,9 +49,6 @@ public class Bank{
                 case "config" :
                   args[cnt] = "-c";
                   break;
-                case "height" :
-                  args[cnt] = "-z";
-                  break;
                 case "help" :
                   args[cnt] = "-h";
                   break;
@@ -63,9 +57,6 @@ public class Bank{
                   break;
                 case "version" :
                   args[cnt] = "-v";
-                  break;
-                case "width" :
-                  args[cnt] = "-w";
                   break;
               }
             }
@@ -114,26 +105,6 @@ public class Bank{
                   mode = MODE.VERSION;
                 }
                 break;
-              case 'w' :
-                /* Check if value could exist */
-                if(++cnt < args.length){
-                  /* Parse value */
-                  w = SafeParse.getInt(args[cnt], w);
-                }else{
-                  System.err.println("No arguments for width");
-                  Main.exit(Main.EXIT_STATUS.ERROR);
-                }
-                break;
-              case 'z' :
-                /* Check if value could exist */
-                if(++cnt < args.length){
-                  /* Parse value */
-                  z = SafeParse.getInt(args[cnt], z);
-                }else{
-                  System.err.println("No arguments for height");
-                  Main.exit(Main.EXIT_STATUS.ERROR);
-                }
-                break;
               default :
                 /* If there has been an issue, go into error mode */
                 mode = MODE.ERROR;
@@ -150,9 +121,6 @@ public class Bank{
         Main.exit(Main.EXIT_STATUS.PLANNED);
         break;
       case UI :
-        Debug.println("w -> " + w);
-        Debug.println("z -> " + z);
-        new UI(w, z);
         break;
       case VERSION :
         version();
@@ -187,8 +155,6 @@ public class Bank{
       "\n    --ui        -u" +
       "\n      OPTions" +
       "\n        --config    -c" +
-      "\n        --width     -w    Width of window" +
-      "\n        --height    -z    Height of window" +
       "\n    --version   -v" +
       "\n      Displays program version." +
       "\n" +
