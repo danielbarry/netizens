@@ -20,7 +20,7 @@ import org.json.JSONObject;
  **/
 public class Bank{
   public enum MODE{
-    NONE, ERROR, HELP, VERSION, UI, SERVER
+    NONE, ERROR, HELP, VERSION, UI
   }
 
   /**
@@ -58,9 +58,6 @@ public class Bank{
                   break;
                 case "help" :
                   args[cnt] = "-h";
-                  break;
-                case "server" :
-                  args[cnt] = "-s";
                   break;
                 case "ui" :
                   args[cnt] = "-u";
@@ -104,12 +101,6 @@ public class Bank{
                 /* Override any mode other than error */
                 if(mode != MODE.ERROR){
                   mode = MODE.HELP;
-                }
-                break;
-              case 's' :
-                /* Only override if no other mode set */
-                if(mode == MODE.NONE){
-                  mode = MODE.SERVER;
                 }
                 break;
               case 'u' :
@@ -159,9 +150,6 @@ public class Bank{
         help();
         Main.exit(Main.EXIT_STATUS.PLANNED);
         break;
-      case SERVER :
-        /* TODO: Write this section. */
-        break;
       case UI :
         Debug.println("w -> " + w);
         Debug.println("z -> " + z);
@@ -196,10 +184,6 @@ public class Bank{
       "\n" +
       "\n    --help      -h" +
       "\n      Displays this help." +
-      "\n" +
-      "\n    --server    -s" +
-      "\n      OPTions" +
-      "\n        --config    -c    Main program configuration" +
       "\n" +
       "\n    --ui        -u" +
       "\n      OPTions" +
