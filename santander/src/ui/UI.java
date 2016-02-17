@@ -1,8 +1,10 @@
 package netizens.bank.ui;
 
+import java.util.HashMap;
 import javax.swing.JFrame;
 import netizens.bank.utils.Debug;
 import netizens.bank.utils.JSON;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -12,7 +14,8 @@ import org.json.JSONTokener;
  * This class is responsible for handling the User Interface in its entirety.
  **/
 public class UI{
-  JFrame gui;
+  private JFrame gui;
+  private HashMap<String, JSONArray> allDisplays;
 
   /**
    * UI()
@@ -30,12 +33,27 @@ public class UI{
     Debug.println("windowPath -> " + windowPath);
     /* Load window settings JSON file */
     JSONObject windowObj = (new JSONObject(JSON.getJSONTokener(windowPath))).getJSONObject("window");
+
+    /* Load displays from array */
+    JSONArray displays = windowObj.getJSONArray("displays");
+    /* Create HashMap */
+    allDisplays = new HashMap<String, JSONArray>();
+    /* Iterate over displays */
+    for(int x = 0; x < displays.length(); x++){
+      /* Single display object */
+      JSONObject disp = displays.getJSONObject(x);
+      /* Add display window */
+      allDisplays.put(disp.getString("name"), disp.getJSONArray("elems"));
+    }
+
     /* Setup GUI based on values read */
     gui = new JFrame();
     gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     gui.setTitle(windowObj.getString("title"));
     gui.setSize(windowObj.getInt("width"), windowObj.getInt("height"));
     gui.setLocationRelativeTo(null);
+
+    /* Finally display */
     gui.setVisible(true);
   }
 }
