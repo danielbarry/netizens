@@ -1,0 +1,19 @@
+--Basic Commands--
+
+curl
+	retrieve any file from a server and outputs to the console
+
+wget
+	retrieve any file from a server and save to a file
+
+grep
+	perform regex on any text piped to it
+
+ping
+	hopefully I don't need to explain this...
+
+
+--Pre Formed Scripts--
+
+Retrieve an IP from the source of a html page and ping it 
+	ping $(curl 192.168.1.93/not/level3.html | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}")
