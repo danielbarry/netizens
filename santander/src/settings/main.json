@@ -1,5 +1,9 @@
 {
   "main" : {
-    "window" : "window.json"
+    "version" : "0.0.0",
+    "settings" : {
+      "window"  : "window.json",
+      "network" : "network.json"
+    }
   }
 }

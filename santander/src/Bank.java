@@ -7,6 +7,7 @@ import java.io.InputStream;
 import netizens.bank.Main;
 import netizens.bank.ui.UI;
 import netizens.bank.utils.Debug;
+import netizens.bank.utils.JSON;
 import netizens.bank.utils.SafeParse;
 import org.json.JSONTokener;
 import org.json.JSONObject;
@@ -34,6 +35,7 @@ public class Bank{
     /* Store mode */
     MODE mode = MODE.NONE;
     /* Variables parsed */
+    String mainFile = "main.json";
     /* Firstly, parse all arguments and draw all the data from them */
     for(int cnt = 0; cnt < args.length; cnt++){
       /* Is the string large enough to check? */
@@ -65,23 +67,8 @@ public class Bank{
               case 'c' :
                 /* Check if value could exist */
                 if(++cnt < args.length){
-                  /* Pre-define file variables with null */
-                  File file = null;
-                  InputStream in = null;
-                  /* Try to load in file */
-                  try{
-                    file = new File(args[cnt]);
-                    in = new FileInputStream(file);
-                  }catch(FileNotFoundException e){
-                    System.err.println("Config not found");
-                    Main.exit(Main.EXIT_STATUS.ERROR);
-                  }
-                  /* Make sure that we definitely caught the exception */
-                  if(file != null && in != null){
-                    Debug.println("Parsing String to JSONTokener");
-                    /* Load main configuration file */
-                    JSONTokener jTokener = new JSONTokener(in);
-                  }
+                  /* Override the default configuration location */
+                  mainFile = args[cnt];
                 }else{
                   System.err.println("No arguments for width");
                   Main.exit(Main.EXIT_STATUS.ERROR);
@@ -114,6 +101,8 @@ public class Bank{
         }
       }
     }
+    /* Attempt to load the main settings file */
+    JSONTokener mainJSON = JSON.getJSONTokener(mainFile);
     /* Complete actions for final mode */
     switch(mode){
       case HELP :
@@ -121,6 +110,7 @@ public class Bank{
         Main.exit(Main.EXIT_STATUS.PLANNED);
         break;
       case UI :
+        new UI(mainJSON);
         break;
       case VERSION :
         version();

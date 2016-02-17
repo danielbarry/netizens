@@ -1,5 +1,25 @@
 {
   "window" : {
-    "title" : "Bank User Interface"
+    "title"  : "Bank User Interface",
+    "width"  : "500",
+    "height" : "500",
+    "main-display" : {
+      "elements" : [
+        {
+          "back"     : "#FFFFFF",
+          "colour"   : "#FF0000",
+          "position" : "north",
+          "type"     : "label",
+          "text"     : "Netizens Bank Demo"
+        },
+        {
+          "back"     : "#FFFFFF",
+          "colour"   : "#FF0000",
+          "position" : "east",
+          "type"     : "label",
+          "text"     : "Please enter your\ninto the machine\nto begin the\ntransaction."
+        }
+      ]
+    }
   }
 }
