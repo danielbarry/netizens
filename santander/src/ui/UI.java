@@ -53,7 +53,31 @@ public class UI{
     gui.setSize(windowObj.getInt("width"), windowObj.getInt("height"));
     gui.setLocationRelativeTo(null);
 
+    /* Load in main display */
+    loadDisplay("main");
+
     /* Finally display */
     gui.setVisible(true);
+  }
+
+  /**
+   * loadDisplay()
+   *
+   * Load the display loaded in from predefined list.
+   *
+   * @param name The name of the display to be loaded.
+   **/
+  private void loadDisplay(String name){
+    /* TODO: Dump previous display. */
+    /* Get the requested window */
+    JSONArray disp = allDisplays.get(name);
+    /* Iterate over elements of display */
+    for(int x = 0; x < disp.length(); x++){
+      /* Get the elements */
+      JSONObject elems = disp.getJSONObject(x);
+      /* Get the type to decide what to do next */
+      String type = elems.getString("type");
+      Debug.println("type -> " + type);
+    }
   }
 }
