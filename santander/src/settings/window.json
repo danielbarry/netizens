@@ -10,16 +10,42 @@
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
-            "position" : "north",
+            "height"   : "0.1",
+            "left"     : "0.2",
+            "text"     : "Netizens Bank Demo",
+            "top"      : "0.1",
             "type"     : "label",
-            "text"     : "Netizens Bank Demo"
+            "width"    : "0.6"
           },
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
-            "position" : "east",
+            "height"   : "0.05",
+            "left"     : "0.1",
+            "text"     : "1 2 3",
+            "top"      : "0.3",
             "type"     : "label",
-            "text"     : "Please enter your\ninto the machine\nto begin the\ntransaction."
+            "width"    : "0.15"
+          },
+          {
+            "back"     : "#FFFFFF",
+            "colour"   : "#FF0000",
+            "height"   : "0.05",
+            "left"     : "0.1",
+            "text"     : "4 5 6",
+            "top"      : "0.35",
+            "type"     : "label",
+            "width"    : "0.15"
+          },
+          {
+            "back"     : "#FFFFFF",
+            "colour"   : "#FF0000",
+            "height"   : "0.05",
+            "left"     : "0.1",
+            "text"     : "7 8 9",
+            "top"      : "0.4",
+            "type"     : "label",
+            "width"    : "0.15"
           }
         ]
       }
