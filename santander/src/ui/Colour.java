@@ -49,7 +49,7 @@ public class Colour{
     for(int x = 0; x < hex.length(); x++){
       result = result << 4;
       int temp = (int)(hex.charAt(x));
-      result += temp <= (int)('9') ? temp - (int)('0') : temp - (int)(':');
+      result += temp <= (int)('9') ? temp - (int)('0') : temp - (int)('7');
     }
     return result;
   }
