@@ -1,6 +1,7 @@
 {
   "window" : {
     "title"  : "Bank User Interface",
+    "back"   : "#00FFFF",
     "width"  : "500",
     "height" : "500",
     "displays" : [

@@ -82,6 +82,8 @@ public class UI{
     /* Load in main display */
     loadDisplay("main");
 
+    /* Set back colour */
+    gui.getContentPane().setBackground(Colour.cast(windowObj.getString("back")));
     /* Finally display */
     gui.setVisible(true);
   }
