@@ -1,5 +1,8 @@
 package netizens.bank.server;
 
+import netizens.bank.utils.Debug;
+import netizens.bank.utils.JSON;
+import org.json.JSONObject;
 import org.json.JSONTokener;
 
 /**
@@ -17,6 +20,14 @@ public class Server{
    * the server.
    **/
   public Server(JSONTokener mainJSON){
-    /* TODO: Write this method. */
+    /* Read Server JSON from configuration */
+    JSONObject mainObj = (new JSONObject(mainJSON)).getJSONObject("main");
+    /* Get the list of settings files */
+    JSONObject settingsObj = mainObj.getJSONObject("settings");
+    /* Get the server settings filename */
+    String serverPath = settingsObj.getString("server");
+    Debug.println("serverPath -> " + serverPath);
+    /* Load window settings JSON file */
+    JSONObject serverObj = (new JSONObject(JSON.getJSONTokener(serverPath))).getJSONObject("server");
   }
 }
