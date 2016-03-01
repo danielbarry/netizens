@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import netizens.bank.Main;
+import netizens.bank.server.Server;
 import netizens.bank.ui.UI;
 import netizens.bank.utils.Debug;
 import netizens.bank.utils.JSON;
@@ -19,7 +20,7 @@ import org.json.JSONTokener;
  **/
 public class Bank{
   public enum MODE{
-    NONE, ERROR, HELP, VERSION, UI
+    NONE, ERROR, HELP, VERSION, SERVER, UI
   }
 
   /**
@@ -53,6 +54,9 @@ public class Bank{
                 case "help" :
                   args[cnt] = "-h";
                   break;
+                case "server" :
+                  args[cnt] = "-s";
+                  break;
                 case "ui" :
                   args[cnt] = "-u";
                   break;
@@ -77,6 +81,12 @@ public class Bank{
                 /* Override any mode other than error */
                 if(mode != MODE.ERROR){
                   mode = MODE.HELP;
+                }
+                break;
+              case 's' :
+                /* Only override if no other mode set */
+                if(mode == MODE.NONE){
+                  mode = MODE.SERVER;
                 }
                 break;
               case 'u' :
@@ -107,6 +117,9 @@ public class Bank{
       case HELP :
         help();
         Main.exit(Main.EXIT_STATUS.PLANNED);
+        break;
+      case SERVER :
+        new Server(mainJSON);
         break;
       case UI :
         new UI(mainJSON);
@@ -141,6 +154,9 @@ public class Bank{
       "\n    --help      -h" +
       "\n      Displays this help." +
       "\n" +
+      "\n    --server    -s" +
+      "\n      OPTions" +
+      "\n        --config    -c" +
       "\n    --ui        -u" +
       "\n      OPTions" +
       "\n        --config    -c" +
