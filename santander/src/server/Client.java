@@ -4,6 +4,8 @@ import java.io.InputStream;
 import java.io.IOException;
 import java.net.Socket;
 import netizens.bank.utils.Error;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 /**
  * Client.java
@@ -48,6 +50,10 @@ public class Client extends Thread{
     /* Cast to String */
     String raw = new String(request);
     /* Parse the object */
+    JSONTokener jToke = new JSONTokener(raw);
+    /* Create JSONObject */
+    JSONObject jObj = new JSONObject(jToke);
+    /* TODO: Handle JSON. */
     /* Finally, close the socket */
     try{
       /* Close the socket connection */
