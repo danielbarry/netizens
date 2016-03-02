@@ -2,6 +2,7 @@ package netizens.bank.server;
 
 import java.io.IOException;
 import java.net.Socket;
+import netizens.bank.utils.Error;
 
 /**
  * Client.java
@@ -37,7 +38,8 @@ public class Client extends Thread{
       /* Close the socket connection */
       socket.close();
     }catch(IOException e){
-      /* TODO: Handle case that the socket could not be closed. */
+      /* Default error handling */
+      Error.safeThrow(e, false);
     }
   }
 }
