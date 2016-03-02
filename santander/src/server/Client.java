@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketException;
 import netizens.bank.utils.Error;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -60,9 +61,20 @@ public class Client extends Thread{
     String raw = new String(request);
     /* Parse the object */
     JSONTokener jToke = new JSONTokener(raw);
-    /* Create JSONObject */
-    JSONObject jObj = new JSONObject(jToke);
-    /* TODO: Handle JSON. */
+    /* Create NULL object */
+    JSONObject jObj = null;
+    /* Safely parse JSON */
+    try{
+      /* Create JSONObject */
+      jObj = new JSONObject(jToke);
+    }catch(JSONException e){
+      /* Default error handling */
+      Error.safeThrow(e, false);
+    }
+    /* Make sure the string was parsed */
+    if(jObj != null){
+      /* TODO: Handle JSON. */
+    }
     /* Finally, close the socket */
     try{
       /* Close the socket connection */
