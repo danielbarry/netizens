@@ -1,5 +1,8 @@
 package netizens.bank.server;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import netizens.bank.utils.Debug;
 import netizens.bank.utils.JSON;
 import org.json.JSONObject;
@@ -11,6 +14,8 @@ import org.json.JSONTokener;
  * This class handles the simple server input and output.
  **/
 public class Server{
+  private ServerSocket server;
+
   /**
    * Server()
    *
@@ -29,5 +34,25 @@ public class Server{
     Debug.println("serverPath -> " + serverPath);
     /* Load window settings JSON file */
     JSONObject serverObj = (new JSONObject(JSON.getJSONTokener(serverPath))).getJSONObject("server");
+    /* Safely create the server instance */
+    try{
+      /* Create server */
+      server = new ServerSocket(3333);
+    }catch(IOException e){
+      /* TODO: Handle the error. */
+    }
+    /* Loop infinitely */
+    for(;;){
+      /* Safely deal with client exceptions */
+      try{
+        /* Internal infinite loop */
+        for(;;){
+          /* Accept client connection */
+          Socket s = server.accept();
+        }
+      }catch(IOException e){
+        /* TODO: Handle the error. */
+      }
+    }
   }
 }
