@@ -1,5 +1,6 @@
 package netizens.bank.server;
 
+import java.io.InputStream;
 import java.io.IOException;
 import java.net.Socket;
 import netizens.bank.utils.Error;
@@ -32,7 +33,20 @@ public class Client extends Thread{
    **/
   @Override
   public void run(){
-    /* TODO: Write this code. */
+    /* Read the maximum size */
+    byte[] request = new byte[readSize];
+    /* Safely request bytes from stream */
+    try{
+      /* Get JSON request*/
+      InputStream is = socket.getInputStream();
+      is.read(request, 0, readSize);
+    }catch(IOException e){
+      /* Default error handling */
+      Error.safeThrow(e, false);
+    }
+    /* Cast to String */
+    String raw = new String(request);
+    /* Parse the object */
     /* Finally, close the socket */
     try{
       /* Close the socket connection */
