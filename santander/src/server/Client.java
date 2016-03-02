@@ -12,6 +12,7 @@ import netizens.bank.utils.Error;
  * processed before replying.
  **/
 public class Client extends Thread{
+  private static int readSize = 4096;
   private Socket socket;
 
   /**
