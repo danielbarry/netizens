@@ -3,6 +3,7 @@ package netizens.bank.server;
 import java.io.InputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.net.SocketException;
 import netizens.bank.utils.Error;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -14,6 +15,7 @@ import org.json.JSONTokener;
  * processed before replying.
  **/
 public class Client extends Thread{
+  private static int timeout = 5000;
   private static int readSize = 4096;
   private Socket socket;
 
@@ -36,6 +38,13 @@ public class Client extends Thread{
    **/
   @Override
   public void run(){
+    /* Safely set time out on request to prevent malicious code */
+    try{
+      socket.setSoTimeout(timeout);
+    }catch(SocketException e){
+      /* Default error handling */
+      Error.safeThrow(e, false);
+    }
     /* Read the maximum size */
     byte[] request = new byte[readSize];
     /* Safely request bytes from stream */
