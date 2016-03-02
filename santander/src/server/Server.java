@@ -5,6 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import netizens.bank.server.Client;
 import netizens.bank.utils.Debug;
+import netizens.bank.utils.Error;
 import netizens.bank.utils.JSON;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -40,7 +41,8 @@ public class Server{
       /* Create server */
       server = new ServerSocket(3333);
     }catch(IOException e){
-      /* TODO: Handle the error. */
+      /* Default error handling */
+      Error.safeThrow(e, true);
     }
     /* Loop infinitely */
     for(;;){
@@ -54,7 +56,8 @@ public class Server{
           new Client(s).start();
         }
       }catch(IOException e){
-        /* TODO: Handle the error. */
+        /* Default error handling */
+        Error.safeThrow(e, false);
       }
     }
   }
