@@ -3,6 +3,7 @@ package netizens.bank.server;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import netizens.bank.server.Client;
 import netizens.bank.utils.Debug;
 import netizens.bank.utils.JSON;
 import org.json.JSONObject;
@@ -49,6 +50,8 @@ public class Server{
         for(;;){
           /* Accept client connection */
           Socket s = server.accept();
+          /* Pass connection on and start the thread */
+          new Client(s).start();
         }
       }catch(IOException e){
         /* TODO: Handle the error. */
