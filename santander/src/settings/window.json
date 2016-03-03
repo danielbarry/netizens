@@ -1,13 +1,9 @@
 {
   "window" : {
     "title"  : "Bank User Interface",
-
     "back"   : "#EC0000",
     "width"  : "1000",
     "height" : "736",
-
-  
-
     "displays" : [
       {
         "name" : "main",
@@ -219,9 +215,6 @@
           }
         ]
       },
-
-
-
       {
         "name" : "biometric",
         "elems" : [
@@ -256,12 +249,8 @@
             "type"     : "link",
             "width"    : "0.2"
           }
-
-
         ]
       },
-
-
       {
         "name" : "errormsg",
         "elems" : [
@@ -309,10 +298,6 @@
           }
         ]
       },
-
-
-
-
       {
         "name" : "checking",
         "elems" : [
@@ -365,7 +350,6 @@
             "type"     : "link",
             "width"    : "0.2"
           },
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#000000",
@@ -409,7 +393,6 @@
             "type"     : "link",
             "width"    : "0.4"
           },
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -423,11 +406,9 @@
           }
         ]
       },
-
        {
         "name" : "printbalance",
         "elems" : [
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#000000",
@@ -438,7 +419,6 @@
             "type"     : "label",
             "width"    : "0.8"
           },
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -452,12 +432,9 @@
           }
         ]
       },
-
-
       {
         "name" : "balance",
         "elems" : [
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#000000",
@@ -478,8 +455,6 @@
             "type"     : "label",
             "width"    : "0.6"
           },
-          
-        
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -491,7 +466,6 @@
             "type"     : "link",
             "width"    : "0.4"
           },
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -505,11 +479,9 @@
           }
         ]
       },
-
       {
         "name" : "printbalance",
         "elems" : [
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#000000",
@@ -520,7 +492,6 @@
             "type"     : "label",
             "width"    : "0.8"
           },
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -534,11 +505,9 @@
           }
         ]
       },
-
        {
         "name" : "transactionpro",
         "elems" : [
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#000000",
@@ -549,7 +518,6 @@
             "type"     : "label",
             "width"    : "0.8"
           },
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -563,11 +531,9 @@
           }
         ]
       },
-
       {
         "name" : "selectammount",
         "elems" : [
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#000000",
@@ -578,7 +544,6 @@
             "type"     : "label",
             "width"    : "0.6"
           },
-
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -589,9 +554,7 @@
             "top"      : "0.8",
             "type"     : "link",
             "width"    : "0.35"
-          }, 
-
-
+          },
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -602,8 +565,7 @@
             "top"      : "0.35",
             "type"     : "link",
             "width"    : "0.35"
-          }, 
-
+          },
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -614,8 +576,7 @@
             "top"      : "0.5",
             "type"     : "link",
             "width"    : "0.35"
-          }, 
-          
+          },
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -649,7 +610,7 @@
             "type"     : "link",
             "width"    : "0.35"
           },
- {
+          {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
             "height"   : "0.1",
@@ -660,8 +621,6 @@
             "type"     : "link",
             "width"    : "0.35"
           },
-
-
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -673,15 +632,11 @@
             "type"     : "link",
             "width"    : "0.35"
           }
-
-
         ]
       },
-
-{
+      {
         "name" : "wouldyoulikeareciept",
         "elems" : [
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#000000",
@@ -692,10 +647,6 @@
             "type"     : "label",
             "width"    : "0.6"
           },
-
-         
-
-
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -707,7 +658,7 @@
             "type"     : "link",
             "width"    : "0.35"
           },
-           {
+          {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
             "height"   : "0.1",
@@ -718,15 +669,11 @@
             "type"     : "link",
             "width"    : "0.35"
           }
-
-
         ]
       },
-
       {
         "name" : "customammount",
         "elems" : [
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#000000",
@@ -737,7 +684,6 @@
             "type"     : "label",
             "width"    : "0.8"
           },
-
           {
             "back"     : "#FFFFFF",
             "colour"   : "#000000",
@@ -892,19 +838,13 @@
             "top"      : "0.85",
             "type"     : "link",
             "width"    : "0.15"
-          } 
-
+          }
         ]
       },
-
-
-{
+      {
         "name" : "multipleserror",
         "elems" : [
-
-
-
-         {
+          {
             "back"     : "#00FF00",
             "colour"   : "#000000",
             "height"   : "0.1",
@@ -915,7 +855,6 @@
             "type"     : "link",
             "width"    : "0.2"
           },
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#000000",
@@ -926,7 +865,6 @@
             "type"     : "label",
             "width"    : "0.8"
           },
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -951,11 +889,9 @@
           }
         ]
       },
-
-{
+      {
         "name" : "insufficiantfunds",
         "elems" : [
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#000000",
@@ -966,7 +902,6 @@
             "type"     : "label",
             "width"    : "0.8"
           },
-          
           {
             "back"     : "#FFFFFF",
             "colour"   : "#FF0000",
@@ -990,11 +925,7 @@
             "width"    : "0.2"
           }
         ]
-      },      
-
-
-
-
+      },
     ]
   }
 }
