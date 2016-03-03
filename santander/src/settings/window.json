@@ -201,17 +201,6 @@
             "top"      : "0.8",
             "type"     : "input",
             "width"    : "0.15"
-          },
-          {
-            "back"     : "#00FF00",
-            "colour"   : "#000000",
-            "height"   : "0.1",
-            "left"     : "0.0",
-            "location" : "biometric",
-            "text"     : "Next",
-            "top"      : "0.0",
-            "type"     : "link",
-            "width"    : "0.2"
           }
         ]
       },
