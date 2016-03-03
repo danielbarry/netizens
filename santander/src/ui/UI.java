@@ -285,6 +285,16 @@ public class UI{
           loadDisplay("biometric");
         }
         break;
+      case "checking" :
+        /* TODO: Correctly communicate with server. */
+        /* TODO: Remove below hack. */
+        textBuffer = "";
+        if(userPin.equals("1234")){
+          loadDisplay("services");
+        }else{
+          loadDisplay("errormsg");
+        }
+        break;
     }
   }
 }
