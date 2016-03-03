@@ -282,7 +282,7 @@ public class UI{
           /* Clear the text buffer */
           textBuffer = "";
           /* Load the next screen */
-          loadDisplay("checking");
+          loadDisplay("biometric");
         }
         break;
     }
