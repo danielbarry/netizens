@@ -14,6 +14,13 @@
 #include "libfprint/fprint.h"
 #include <iostream>
 
+/* Declarations */
+#define TRUE 1
+#define FALSE 0
+
+/* Configuration */
+#define DEBUG TRUE
+
 /* Static declaration of methods */
 static void debug(const char* msg);
 
@@ -26,8 +33,12 @@ static void debug(const char* msg);
  * @param argv The parameters passed to the program.
  **/
 int main(int argc, char** argv){
-  debug("program started");
-  debug("program ended");
+  #if DEBUG == TRUE
+    debug("program started");
+  #endif
+  #if DEBUG == TRUE
+    debug("program ended");
+  #endif
 }
 
 /**
@@ -38,6 +49,8 @@ int main(int argc, char** argv){
  *
  * @param msg The message to be displayed.
  **/
-static void debug(const char* msg){
-  std::cout << "[??] " << msg << "\n";
-}
+#if DEBUG == TRUE
+  static void debug(const char* msg){
+    std::cout << "[??] " << msg << "\n";
+  }
+#endif
