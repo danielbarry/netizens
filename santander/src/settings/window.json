@@ -561,7 +561,7 @@
             "height"   : "0.1",
             "left"     : "0.55",
             "location" : "wouldyoulikeareciept",
-            "text"     : "70 GBP",
+            "text"     : "£ 70",
             "top"      : "0.35",
             "type"     : "link",
             "width"    : "0.35"
@@ -572,7 +572,7 @@
             "height"   : "0.1",
             "left"     : "0.55",
             "location" : "wouldyoulikeareciept",
-            "text"     : "100 GBP",
+            "text"     : "£ 100",
             "top"      : "0.5",
             "type"     : "link",
             "width"    : "0.35"
@@ -583,7 +583,7 @@
             "height"   : "0.1",
             "left"     : "0.05",
             "location" : "wouldyoulikeareciept",
-            "text"     : "50 GBP",
+            "text"     : "£ 50",
             "top"      : "0.8",
             "type"     : "link",
             "width"    : "0.35"
@@ -594,7 +594,7 @@
             "height"   : "0.1",
             "left"     : "0.05",
             "location" : "wouldyoulikeareciept",
-            "text"     : "40 GBP",
+            "text"     : "£ 40",
             "top"      : "0.65",
             "type"     : "link",
             "width"    : "0.35"
@@ -605,7 +605,7 @@
             "height"   : "0.1",
             "left"     : "0.05",
             "location" : "wouldyoulikeareciept",
-            "text"     : "20 GBP",
+            "text"     : "£ 20",
             "top"      : "0.5",
             "type"     : "link",
             "width"    : "0.35"
@@ -616,7 +616,7 @@
             "height"   : "0.1",
             "left"     : "0.05",
             "location" : "wouldyoulikeareciept",
-            "text"     : "10 GBP",
+            "text"     : "£ 10",
             "top"      : "0.35",
             "type"     : "link",
             "width"    : "0.35"
