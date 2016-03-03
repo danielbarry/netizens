@@ -31,6 +31,8 @@ public class UI{
   private ArrayList<JLabel> labels;
   private String textBuffer;
 
+  private String userPin;
+
   /**
    * UI()
    *
@@ -273,8 +275,10 @@ public class UI{
         if(textBuffer.length() >= 4){
           /* Get the pin digits */
           String pin = textBuffer.substring(0, 4);
+          /* Save the user pin */
+          userPin = pin;
           /* Debug the pin to the terminal */
-          Debug.println(pin);
+          Debug.println(userPin);
           /* Clear the text buffer */
           textBuffer = "";
           /* Load the next screen */
