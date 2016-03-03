@@ -12,6 +12,10 @@
 #include <cstddef>
 /* NOTE: This is found at /usr/include/libfprint/fprint.h. */
 #include "libfprint/fprint.h"
+#include <iostream>
+
+/* Static declaration of methods */
+static void debug(const char* msg);
 
 /**
  * main()
@@ -22,5 +26,18 @@
  * @param argv The parameters passed to the program.
  **/
 int main(int argc, char** argv){
-  /* TODO: Write this code. */
+  debug("program started");
+  debug("program ended");
+}
+
+/**
+ * debug()
+ *
+ * Debug messages from this program which can be switch on and off using the
+ * pre-compiler settings.
+ *
+ * @param msg The message to be displayed.
+ **/
+static void debug(const char* msg){
+  std::cout << "[??] " << msg << "\n";
 }
