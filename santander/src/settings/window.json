@@ -232,7 +232,7 @@
             "colour"   : "#000000",
             "height"   : "0.1",
             "left"     : "0.0",
-            "location" : "pin",
+            "location" : "checking",
             "text"     : "Next",
             "top"      : "0.0",
             "type"     : "link",
@@ -315,11 +315,11 @@
             "back"     : "#00FF00",
             "colour"   : "#000000",
             "height"   : "0.1",
+            "input"    : "REMOVEME",
             "left"     : "0.0",
-            "location" : "errormsg",
-            "text"     : "Next",
+            "text"     : "Complete",
             "top"      : "0.0",
-            "type"     : "link",
+            "type"     : "input",
             "width"    : "0.2"
           }
         ]
