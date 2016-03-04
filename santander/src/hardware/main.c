@@ -29,6 +29,8 @@ static bool initHardware();
 static bool openDevice();
 static bool closeDevice();
 static void debug(const char* msg);
+static void displayHelp();
+static void displayVersion();
 
 /* Static declaration of variables */
 static struct fp_dscv_dev** devices;
@@ -47,30 +49,75 @@ static struct fp_dev* dev;
  **/
 int main(int argc, char** argv){
   bool okay = true;
+  char opt = 'h';
   #if DEBUG == TRUE
     debug("program started");
   #endif
-  /* Ready hardware */
-  okay = initHardware();
-  if(!okay){
-    #if DEBUG == TRUE
-      debug("hardware initialisation failed");
-    #endif
-      return 0;
+  /* Check the program for parameters */
+  if(argc >= 2){
+    /* Check if the parsed parameter has enough characters */
+    if(argv[1][0] != '\0'){
+      if(argv[1][1] != '\0'){
+        /* Set the option to the character */
+        opt = argv[1][1];
+      }
+    }
   }
-  okay = openDevice();
-  if(!okay){
-    #if DEBUG == TRUE
-      debug("failed to open device");
-    #endif
-      return 0;
+  /* Only start the devices that require starting */
+  switch(opt){
+    case 'i' :
+      /* Ready hardware */
+      okay = initHardware();
+      if(!okay){
+        #if DEBUG == TRUE
+          debug("hardware initialisation failed");
+        #endif
+          return 0;
+      }
+      okay = openDevice();
+      if(!okay){
+        #if DEBUG == TRUE
+          debug("failed to open device");
+        #endif
+          return 0;
+      }
+      break;
+    case 'h' :
+    case 'v' :
+    default  :
+      /* Do nothing */
+      break;
   }
-  okay = closeDevice();
-  if(!okay){
-    #if DEBUG == TRUE
-      debug("failed to close device");
-    #endif
-      return 0;
+  /* Do specific task */
+  switch(opt){
+    case 'h' :
+      displayHelp();
+      break;
+    case 'i' :
+      /* TODO: Save image. */
+      break;
+    case 'v' :
+      displayVersion();
+      break;
+    default :
+      displayHelp();
+      break;
+  }
+  switch(opt){
+    case 'i' :
+      okay = closeDevice();
+      if(!okay){
+        #if DEBUG == TRUE
+          debug("failed to close device");
+        #endif
+          return 0;
+      }
+      break;
+    case 'h' :
+    case 'v' :
+    default  :
+      /* Do nothing */
+      break;
   }
   #if DEBUG == TRUE
     debug("program ended");
@@ -199,3 +246,29 @@ static bool closeDevice(){
     printf("[??] %s \n", msg);
   }
 #endif
+
+/**
+ * displayHelp()
+ *
+ * Displays the help for this program.
+ **/
+static void displayHelp(){
+  printf("\n");
+  printf("  finger.bin [OPT]\n");
+  printf("\n");
+  printf("  OPTions\n");
+  printf("\n");
+  printf("    -h    Display this message\n");
+  printf("    -i    Generate a fingerprint image\n");
+  printf("    -v    Display version\n");
+  printf("\n");
+}
+
+/**
+ * displayVersion()
+ *
+ * Displays the version for this program.
+ **/
+static void displayVersion(){
+  printf("Version 1.0.0\n");
+}
