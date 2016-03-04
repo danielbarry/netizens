@@ -97,22 +97,24 @@ static bool initHardware(){
     if(!devices){
       /* Indicate issue */
       ready = false;
+    }
+  }
+  /* Device check */
+  if(ready){
+    /* Pick the first device */
+    device = devices[0];
+    /* Make sure the device exists */
+    if(!device){
+      /* Indicate issue */
+      ready = false;
     }else{
-      /* Pick the first device */
-      device = devices[0];
-      /* Make sure the device exists */
-      if(!device){
-        /* Indicate issue */
-        ready = false;
-      }else{
-        /* Get driver information */
-        driver = fp_dscv_dev_get_driver(device);
-        #if DEBUG == TRUE
-          /* Display information about the driver */
-          debug("found device[0] driver ->");
-          debug(fp_driver_get_full_name(driver));
-        #endif
-      }
+      /* Get driver information */
+      driver = fp_dscv_dev_get_driver(device);
+      #if DEBUG == TRUE
+        /* Display information about the driver */
+        debug("found device[0] driver ->");
+        debug(fp_driver_get_full_name(driver));
+      #endif
     }
   }
   /* Return whether hardware is ready */
