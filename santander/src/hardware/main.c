@@ -26,7 +26,13 @@
 
 /* Static declaration of methods */
 static bool initHardware();
+static bool openDevice();
+static bool closeDevice();
 static void debug(const char* msg);
+
+/* Static declaration of variables */
+static struct fp_dscv_dev** devices;
+static struct fp_dscv_dev* device;
 
 /**
  * main()
@@ -37,19 +43,31 @@ static void debug(const char* msg);
  * @param argv The parameters passed to the program.
  **/
 int main(int argc, char** argv){
+  bool okay = true;
   #if DEBUG == TRUE
     debug("program started");
   #endif
   /* Ready hardware */
-  bool ready = initHardware();
-  if(ready){
+  okay = initHardware();
+  if(!okay){
     #if DEBUG == TRUE
-      debug("hardware ready");
+      debug("hardware initialisation failed");
     #endif
-  }else{
+      return 0;
+  }
+  okay = openDevice();
+  if(!okay){
     #if DEBUG == TRUE
-      debug("hardware not ready");
+      debug("failed to open device");
     #endif
+      return 0;
+  }
+  okay = closeDevice();
+  if(!okay){
+    #if DEBUG == TRUE
+      debug("failed to close device");
+    #endif
+      return 0;
   }
   #if DEBUG == TRUE
     debug("program ended");
@@ -69,8 +87,6 @@ int main(int argc, char** argv){
 static bool initHardware(){
   bool ready = true;
   int r = 1;
-  struct fp_dscv_dev** devices;
-  struct fp_dscv_dev* device;
   struct fp_driver* driver;
   /* Initialise fprint */
   if(ready){
@@ -125,6 +141,28 @@ static bool initHardware(){
   }
   /* Return whether hardware is ready */
   return ready;
+}
+
+/**
+ * openDevice()
+ *
+ * Opens the device ready for use.
+ *
+ * @return Whether the device was able to open.
+ **/
+static bool openDevice(){
+  return false;
+}
+
+/**
+ * closeDevice()
+ *
+ * Closes the device for other systems to use.
+ *
+ * @return Whether the device was able to close.
+ **/
+static bool closeDevice(){
+  return false;
 }
 
 /**
