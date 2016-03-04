@@ -33,6 +33,7 @@ static void debug(const char* msg);
 /* Static declaration of variables */
 static struct fp_dscv_dev** devices;
 static struct fp_dscv_dev* device;
+static struct fp_dev* dev;
 
 /**
  * main()
@@ -151,7 +152,23 @@ static bool initHardware(){
  * @return Whether the device was able to open.
  **/
 static bool openDevice(){
-  return false;
+  bool okay = true;
+  /* Open device for reading */
+  if(okay){
+    /* Lock device */
+    dev = fp_dev_open(device);
+    /* Free up other devices */
+    fp_dscv_devs_free(devices);
+    /* Make sure device opened correctly */
+    if(!dev){
+      /* Indicate issue */
+      okay = false;
+      #if DEBUG == TRUE
+        debug("failed to open device");
+      #endif
+    }
+  }
+  return okay;
 }
 
 /**
@@ -162,7 +179,9 @@ static bool openDevice(){
  * @return Whether the device was able to close.
  **/
 static bool closeDevice(){
-  return false;
+  bool okay = true;
+  fp_dev_close(dev);
+  return okay;
 }
 
 /**
