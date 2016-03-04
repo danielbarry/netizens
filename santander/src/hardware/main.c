@@ -97,6 +97,9 @@ static bool initHardware(){
     if(!devices){
       /* Indicate issue */
       ready = false;
+      #if DEBUG == TRUE
+        debug("failed to discover devices");
+      #endif
     }
   }
   /* Device check */
@@ -107,6 +110,9 @@ static bool initHardware(){
     if(!device){
       /* Indicate issue */
       ready = false;
+      #if DEBUG == TRUE
+        debug("failed to find device");
+      #endif
     }else{
       /* Get driver information */
       driver = fp_dscv_dev_get_driver(device);
