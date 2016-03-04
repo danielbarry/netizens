@@ -38,7 +38,9 @@ static struct fp_dev* dev;
 /**
  * main()
  *
- * The entry point of the program.
+ * The entry point of the program. The mode of operation must be selected, else
+ * a help message will be displayed. The program can only accept one parameter
+ * for the purpose of simplicity.
  *
  * @param argc The number of parameters.
  * @param argv The parameters passed to the program.
