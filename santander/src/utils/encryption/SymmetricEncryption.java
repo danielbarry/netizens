@@ -77,17 +77,17 @@ public class SymmetricEncryption {
     /**
      * Encrypt a message.
      *
-     * @param message message to encrypt.
+     * @param plaintext plaintext to encrypt.
      * @param key key to use for encryption.
-     * @return encrypted message, null if error.
+     * @return ciphertext, null if error.
      */
-    public static byte[] encrypt(byte[] message, Key key) {
+    public static byte[] encrypt(byte[] plaintext, Key key) {
 
         try {
             Cipher c = Cipher.getInstance(SymmetricEncryption.SYMMETRIC_ALGORITHM);
             c.init(Cipher.ENCRYPT_MODE, key);
 
-            return c.doFinal(message);
+            return c.doFinal(plaintext);
 
         } catch (NoSuchAlgorithmException |
                 InvalidKeyException |
@@ -104,17 +104,17 @@ public class SymmetricEncryption {
     /**
      * Decrypt a message.
      *
-     * @param message message to decrypt.
+     * @param ciphertext ciphertext to decrypt.
      * @param key key to use for decryption.
-     * @return decrypted message, null if error
+     * @return plaintext, null if error
      */
-    public static byte[] decrypt(byte[] message, Key key) {
+    public static byte[] decrypt(byte[] ciphertext, Key key) {
 
         try {
             Cipher c = Cipher.getInstance(SymmetricEncryption.SYMMETRIC_ALGORITHM);
             c.init(Cipher.DECRYPT_MODE, key);
 
-            return c.doFinal(message);
+            return c.doFinal(ciphertext);
 
         } catch (NoSuchAlgorithmException |
                 InvalidKeyException |
@@ -125,6 +125,5 @@ public class SymmetricEncryption {
             LOGGER.log(Level.SEVERE, null, ex);
             return null;
         }
-
     }
 }
