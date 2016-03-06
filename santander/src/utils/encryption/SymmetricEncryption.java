@@ -82,23 +82,7 @@ public class SymmetricEncryption {
      * @return ciphertext, null if error.
      */
     public static byte[] encrypt(byte[] plaintext, Key key) {
-
-        try {
-            Cipher c = Cipher.getInstance(SymmetricEncryption.SYMMETRIC_ALGORITHM);
-            c.init(Cipher.ENCRYPT_MODE, key);
-
-            return c.doFinal(plaintext);
-
-        } catch (NoSuchAlgorithmException |
-                InvalidKeyException |
-                IllegalBlockSizeException |
-                BadPaddingException |
-                NoSuchPaddingException ex) {
-
-            LOGGER.log(Level.SEVERE, null, ex);
-            return null;
-        }
-
+        return SymmetricEncryption.symmetricAlgorithm(plaintext, key, Cipher.ENCRYPT_MODE);
     }
 
     /**
@@ -109,12 +93,16 @@ public class SymmetricEncryption {
      * @return plaintext, null if error
      */
     public static byte[] decrypt(byte[] ciphertext, Key key) {
+        return SymmetricEncryption.symmetricAlgorithm(ciphertext, key, Cipher.DECRYPT_MODE);
+    }
+
+    private static byte[] symmetricAlgorithm(byte[] message, Key key, int mode) {
 
         try {
             Cipher c = Cipher.getInstance(SymmetricEncryption.SYMMETRIC_ALGORITHM);
-            c.init(Cipher.DECRYPT_MODE, key);
+            c.init(mode, key);
 
-            return c.doFinal(ciphertext);
+            return c.doFinal(message);
 
         } catch (NoSuchAlgorithmException |
                 InvalidKeyException |
