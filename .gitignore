@@ -15,6 +15,7 @@
 *.class
 *.cmake
 *.pdf
+*.pgm
 *.swp
 
 # Vagrant
