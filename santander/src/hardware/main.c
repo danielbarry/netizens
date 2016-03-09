@@ -28,6 +28,7 @@
 static bool initHardware();
 static bool openDevice();
 static bool closeDevice();
+static void saveImage();
 static void debug(const char* msg);
 static void displayHelp();
 static void displayVersion();
@@ -94,7 +95,8 @@ int main(int argc, char** argv){
       displayHelp();
       break;
     case 'i' :
-      /* TODO: Save image. */
+      /* Save image */
+      saveImage();
       break;
     case 'v' :
       displayVersion();
@@ -230,7 +232,49 @@ static bool openDevice(){
 static bool closeDevice(){
   bool okay = true;
   fp_dev_close(dev);
+  fp_exit();
   return okay;
+}
+
+/**
+ * saveImage()
+ *
+ * Saves an image of the fingerprint to disk.
+ **/
+static void saveImage(){
+  int r;
+  struct fp_img *img = NULL;
+  /* Capture image */
+  r = fp_dev_img_capture(dev, 0, &img);
+  /* Check whether than has been an error */
+  if(r != 0){
+    /* Indicate issue */
+    #if DEBUG == TRUE
+      debug("failed to capture image");
+    #endif
+  }
+  /* Save image */
+  r = fp_img_save_to_file(img, "finger.pgm");
+  /* Check whether than has been an error */
+  if(r != 0){
+    /* Indicate issue */
+    #if DEBUG == TRUE
+      debug("failed to save image");
+    #endif
+  }
+  /* Standardize image */
+  fp_img_standardize(img);
+  /* Save standardized image */
+  r = fp_img_save_to_file(img, "finger_standardized.pgm");
+  /* Free memory */
+  fp_img_free(img);
+  /* Check whether than has been an error */
+  if(r != 0){
+    /* Indicate issue */
+    #if DEBUG == TRUE
+      debug("failed to save standardized image");
+    #endif
+  }
 }
 
 /**
