@@ -11,9 +11,11 @@
 **/doc/*
 
 # Ignore extensions
+*.bin
 *.class
 *.cmake
 *.pdf
+*.pgm
 *.swp
 
 # Vagrant

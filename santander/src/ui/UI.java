@@ -29,7 +29,9 @@ public class UI{
   private HashMap<String, JSONArray> allDisplays;
   private String mode;
   private ArrayList<JLabel> labels;
-  private String textBuffer;
+  private String inputBuffer;
+
+  private String userPin;
 
   /**
    * UI()
@@ -55,7 +57,7 @@ public class UI{
     /* Create ArrayList */
     labels = new ArrayList<JLabel>();
     /* Initialise text buffer */
-    textBuffer = "";
+    inputBuffer = "";
     /* Iterate over displays */
     for(int x = 0; x < displays.length(); x++){
       /* Single display object */
@@ -255,30 +257,42 @@ public class UI{
         loadDisplay("card");
       case "CLEAR" :
         /* Clear the text buffer */
-        textBuffer = "";
+        inputBuffer = "";
         break;
       default :
         /* Add the text to the buffer */
-        textBuffer += text;
+        inputBuffer += text;
         break;
     }
     /* Debug text to terminal */
     Debug.println("mode -> " + mode);
     Debug.println("text -> " + text);
-    Debug.println("textBuffer -> " + textBuffer);
+    Debug.println("inputBuffer -> " + inputBuffer);
     /* Process the text */
     switch(mode){
       case "pin" :
         /* Check if we have pin */
-        if(textBuffer.length() >= 4){
+        if(inputBuffer.length() >= 4){
           /* Get the pin digits */
-          String pin = textBuffer.substring(0, 4);
+          String pin = inputBuffer.substring(0, 4);
+          /* Save the user pin */
+          userPin = pin;
           /* Debug the pin to the terminal */
-          Debug.println(pin);
+          Debug.println(userPin);
           /* Clear the text buffer */
-          textBuffer = "";
+          inputBuffer = "";
           /* Load the next screen */
-          loadDisplay("checking");
+          loadDisplay("biometric");
+        }
+        break;
+      case "checking" :
+        /* TODO: Correctly communicate with server. */
+        /* TODO: Remove below hack. */
+        inputBuffer = "";
+        if(userPin.equals("1234")){
+          loadDisplay("services");
+        }else{
+          loadDisplay("errormsg");
         }
         break;
     }
