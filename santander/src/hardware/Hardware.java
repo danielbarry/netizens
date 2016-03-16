@@ -15,10 +15,18 @@ public class Hardware{
    * Gets the hash for a given type of hardware attached.
    *
    * @param type The type of the hardware to be read.
-   * @return The String value to be hashed.
+   * @return The String value to be hashed, otherwise null.
    **/
   public static String getHash(IO_TYPE type){
-    /* TODO: Write code. */
-    return null;
+    /* Generate default hash case */
+    String hash = null;
+    /* Generate hash depending on IO type */
+    switch(type){
+      case FINGERPRINT :
+        /* TODO: Generate hash. */
+        break;
+    }
+    /* Return generated hash */
+    return hash;
   }
 }
