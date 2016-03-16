@@ -1,5 +1,6 @@
 package netizens.bank;
 
+import netizens.bank.Bank;
 import netizens.bank.utils.Debug;
 
 /**
