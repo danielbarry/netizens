@@ -17,7 +17,7 @@ public class Hardware{
    * @param type The type of the hardware to be read.
    * @return The String value to be hashed.
    **/
-  public String getHash(IO_TYPE type){
+  public static String getHash(IO_TYPE type){
     /* TODO: Write code. */
     return null;
   }
