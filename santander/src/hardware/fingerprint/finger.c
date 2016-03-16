@@ -29,6 +29,7 @@ static bool initHardware();
 static bool openDevice();
 static bool closeDevice();
 static void saveImage();
+static void generateHash();
 static void debug(const char* msg);
 static void displayHelp();
 static void displayVersion();
@@ -280,6 +281,16 @@ static void saveImage(){
       debug("failed to save standardized image");
     #endif
   }
+}
+
+/**
+ * generateHash()
+ *
+ * Generates the hash for a given fingerprint and prints the result to the main
+ * output stream.
+ **/
+static void generateHash(){
+  /* TODO: Write code. */
 }
 
 /**
