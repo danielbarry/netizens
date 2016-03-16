@@ -50,7 +50,6 @@ public class Hardware{
         "-h"
       }
     );
-    System.out.println(result); // TODO: Remove me.
     /* TODO: Process the result. */
     return result;
   }
