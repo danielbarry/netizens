@@ -278,8 +278,6 @@ static void saveImage(){
   }
   /* Standardize image */
   fp_img_standardize(img);
-  /* Save standardized image */
-  r = fp_img_save_to_file(img, "finger_standardized.pgm");
   /* Free memory */
   fp_img_free(img);
   /* Check whether than has been an error */
