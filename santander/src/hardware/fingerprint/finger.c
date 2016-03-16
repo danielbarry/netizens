@@ -69,6 +69,7 @@ int main(int argc, char** argv){
   switch(opt){
     case 'g' :
     case 'i' :
+    case 't' :
       /* Ready hardware */
       okay = initHardware();
       if(!okay){
@@ -103,6 +104,9 @@ int main(int argc, char** argv){
       /* Save image */
       saveImage();
       break;
+    case 't' :
+      /* TODO: Write code. */
+      break;
     case 'v' :
       displayVersion();
       break;
@@ -113,6 +117,7 @@ int main(int argc, char** argv){
   switch(opt){
     case 'g' :
     case 'i' :
+    case 't' :
       okay = closeDevice();
       if(!okay){
         #if DEBUG == TRUE
