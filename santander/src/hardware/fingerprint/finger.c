@@ -299,7 +299,32 @@ static void saveImage(){
  * output stream.
  **/
 static void generateHash(){
-  /* TODO: Write code. */
+  int r;
+  struct fp_img *img = NULL;
+  struct fp_img *imgBin = NULL;
+  /* Capture image */
+  r = fp_dev_img_capture(dev, 0, &img);
+  /* Check whether than has been an error */
+  if(r != 0){
+    /* Indicate issue */
+    #if DEBUG == TRUE
+      debug("failed to capture image");
+    #endif
+  }
+  /* Standardize image */
+  fp_img_standardize(img);
+  /* Binarize image */
+  imgBin = fp_img_binarize(img);
+  /* TODO: Generate hash. */
+  /* Free memory */
+  fp_img_free(img);
+  /* Check whether than has been an error */
+  if(r != 0){
+    /* Indicate issue */
+    #if DEBUG == TRUE
+      debug("failed to save standardized image");
+    #endif
+  }
 }
 
 /**
