@@ -21,7 +21,7 @@ import org.json.JSONTokener;
  **/
 public class Bank{
   public enum MODE{
-    NONE, ERROR, HELP, VERSION, SERVER, UI
+    NONE, ERROR, HELP, VERSION, TEST, SERVER, UI
   }
 
   /**
@@ -58,6 +58,9 @@ public class Bank{
                 case "server" :
                   args[cnt] = "-s";
                   break;
+                case "test" :
+                  args[cnt] = "-t";
+                  break;
                 case "ui" :
                   args[cnt] = "-u";
                   break;
@@ -88,6 +91,12 @@ public class Bank{
                 /* Only override if no other mode set */
                 if(mode == MODE.NONE){
                   mode = MODE.SERVER;
+                }
+                break;
+              case 't' :
+                /* Override any mode other than error */
+                if(mode != MODE.ERROR){
+                  mode = MODE.TEST;
                 }
                 break;
               case 'u' :
@@ -122,6 +131,9 @@ public class Bank{
       case HELP :
         help();
         Main.exit(Main.EXIT_STATUS.PLANNED);
+        break;
+      case TEST :
+        /* TODO: Run test here. */
         break;
       case SERVER :
         new Server(mainJSON);
@@ -159,12 +171,16 @@ public class Bank{
       "\n    --help      -h" +
       "\n      Displays this help." +
       "\n" +
+      "\n    --test      -t" +
+      "\n" +
       "\n    --server    -s" +
       "\n      OPTions" +
       "\n        --config    -c" +
+      "\n" +
       "\n    --ui        -u" +
       "\n      OPTions" +
       "\n        --config    -c" +
+      "\n" +
       "\n    --version   -v" +
       "\n      Displays program version." +
       "\n" +
