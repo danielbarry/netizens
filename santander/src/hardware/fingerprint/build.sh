@@ -2,10 +2,11 @@
 
 echo ">>>> Removing old files..."
 rm *.bin
+rm *.pgm
 echo ">>>> Old files removed..."
 
 echo ">>>> Building binary..."
-gcc main.c -l fprint -o finger.bin
+gcc finger.c -l fprint -o finger.bin
 echo ">>>> Binary built..."
 
 echo ">>>> Changing binary permissions..."
