@@ -307,6 +307,7 @@ static void displayHelp(){
   printf("\n");
   printf("  OPTions\n");
   printf("\n");
+  printf("    -g    Generate a fingerprint hash\n");
   printf("    -h    Display this message\n");
   printf("    -i    Generate a fingerprint image\n");
   printf("    -v    Display version\n");
