@@ -4,6 +4,7 @@
 
   <property name="source.dir" location="src/" />
   <property name="json.dir" location="src/settings/" />
+  <property name="binary.dir" location="src/hardware/fingerprint/" />
   <property name="build.dir" location="bin/" />
   <property name="jar.dir" location="dist/" />
   <property name="database.dir" location="dist/database/" />
@@ -40,6 +41,9 @@
     <copy todir="${jar.dir}">
       <fileset dir="${json.dir}">
         <include name="**/*.json" />
+      </fileset>
+      <fileset dir="${binary.dir}">
+        <include name="**/*.bin" />
       </fileset>
     </copy>
   </target>
