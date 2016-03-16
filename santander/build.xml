@@ -46,6 +46,7 @@
         <include name="**/*.bin" />
       </fileset>
     </copy>
+    <chmod file="${jar.dir}/*.bin" perm="ugo+rx" />
   </target>
 
   <target name="run" depends="jar" description="Run Java App">
