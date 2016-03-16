@@ -277,8 +277,6 @@ static void saveImage(){
       debug("failed to save image");
     #endif
   }
-  /* Standardize image */
-  fp_img_standardize(img);
   /* Binarize image */
   imgBin = fp_img_binarize(img);
   /* Save binarized image */
