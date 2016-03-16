@@ -47,7 +47,7 @@ public class Hardware{
     String result = runProgram(
       new String[]{
         "./finger.bin",
-        "-h"
+        "-g"
       }
     );
     /* TODO: Process the result. */
