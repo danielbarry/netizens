@@ -96,7 +96,8 @@ int main(int argc, char** argv){
   /* Do specific task */
   switch(opt){
     case 'g' :
-      /* TODO: Write code. */
+      /* Generate hash */
+      generateHash();
       break;
     case 'h' :
       displayHelp();
@@ -106,7 +107,8 @@ int main(int argc, char** argv){
       saveImage();
       break;
     case 't' :
-      /* TODO: Write code. */
+      /* Train hash */
+      train();
       break;
     case 'v' :
       displayVersion();
