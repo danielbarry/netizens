@@ -66,6 +66,7 @@ int main(int argc, char** argv){
   }
   /* Only start the devices that require starting */
   switch(opt){
+    case 'g' :
     case 'i' :
       /* Ready hardware */
       okay = initHardware();
@@ -91,6 +92,9 @@ int main(int argc, char** argv){
   }
   /* Do specific task */
   switch(opt){
+    case 'g' :
+      /* TODO: Write code. */
+      break;
     case 'h' :
       displayHelp();
       break;
@@ -106,6 +110,7 @@ int main(int argc, char** argv){
       break;
   }
   switch(opt){
+    case 'g' :
     case 'i' :
       okay = closeDevice();
       if(!okay){
