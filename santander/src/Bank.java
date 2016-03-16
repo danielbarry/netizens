@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import netizens.bank.Main;
+import netizens.bank.hardware.Hardware;
+import netizens.bank.hardware.IO_TYPE;
 import netizens.bank.server.Server;
 import netizens.bank.ui.UI;
 import netizens.bank.utils.Debug;
@@ -133,7 +135,10 @@ public class Bank{
         Main.exit(Main.EXIT_STATUS.PLANNED);
         break;
       case TEST :
-        /* TODO: Run test here. */
+        /* Test the fingerprint reader */
+        String hash = Hardware.getHash(IO_TYPE.FINGERPRINT);
+        /* Print hash for debugging purposes */
+        System.out.println("FNGR -> " + hash);
         break;
       case SERVER :
         new Server(mainJSON);
