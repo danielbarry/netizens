@@ -258,6 +258,7 @@ static bool closeDevice(){
 static void saveImage(){
   int r;
   struct fp_img *img = NULL;
+  struct fp_img *imgBin = NULL;
   /* Capture image */
   r = fp_dev_img_capture(dev, 0, &img);
   /* Check whether than has been an error */
@@ -278,6 +279,10 @@ static void saveImage(){
   }
   /* Standardize image */
   fp_img_standardize(img);
+  /* Binarize image */
+  imgBin = fp_img_binarize(img);
+  /* Save binarized image */
+  r = fp_img_save_to_file(imgBin, "finger_binarized.pgm");
   /* Free memory */
   fp_img_free(img);
   /* Check whether than has been an error */
