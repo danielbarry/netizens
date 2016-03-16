@@ -90,7 +90,7 @@ public class Hardware{
     try{
       while((line = br.readLine()) != null){
         /* Store the line in the buffer */
-        buffer += line;
+        buffer += line + "\n";
       }
     }catch(IOException e){
       /* Default error handling */
