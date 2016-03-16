@@ -30,6 +30,7 @@ static bool openDevice();
 static bool closeDevice();
 static void saveImage();
 static void generateHash();
+static void train();
 static void debug(const char* msg);
 static void displayHelp();
 static void displayVersion();
@@ -295,6 +296,15 @@ static void saveImage(){
  * output stream.
  **/
 static void generateHash(){
+  /* TODO: Write code. */
+}
+
+/**
+ * train()
+ *
+ * Trains a fingerprint so that a hash may be made.
+ **/
+static void train(){
   /* TODO: Write code. */
 }
 
