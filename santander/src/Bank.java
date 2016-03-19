@@ -10,6 +10,7 @@ import netizens.bank.ui.UI;
 import netizens.bank.utils.Debug;
 import netizens.bank.utils.JSON;
 import netizens.bank.utils.SafeParse;
+import netizens.bank.utils.Database;
 import org.json.JSONTokener;
 
 /**
@@ -112,6 +113,10 @@ public class Bank{
     }
     /* Attempt to load the main settings file */
     JSONTokener mainJSON = JSON.getJSONTokener(mainFile);
+    /* Give the Database class the path of the database */
+    Database.initialise(mainJSON);
+    /* JSONTokener is a stream, we need to reset the pointer */
+    mainJSON = JSON.getJSONTokener(mainFile);
     /* Complete actions for final mode */
     switch(mode){
       case HELP :

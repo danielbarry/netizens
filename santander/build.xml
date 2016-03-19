@@ -6,6 +6,7 @@
   <property name="json.dir" location="src/settings/" />
   <property name="build.dir" location="bin/" />
   <property name="jar.dir" location="dist/" />
+  <property name="database.dir" location="dist/database/" />
   <property name="doc.dir" location="doc/" />
   <property name="main.class" value="netizens.bank.Main" />
   <property name="main.jar" value="BankDemo.jar" />
@@ -30,6 +31,7 @@
 
   <target name="jar" depends="compile" description="Create Jar File">
     <mkdir dir="${jar.dir}" />
+    <mkdir dir="${database.dir}" />
     <jar destfile="${jar.dir}/${main.jar}" basedir="${build.dir}">
       <manifest>
         <attribute name="Main-Class" value="${main.class}" />

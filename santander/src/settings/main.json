@@ -4,7 +4,8 @@
     "settings" : {
       "window"  : "window.json",
       "network" : "network.json",
-      "server"  : "server.json"
+      "server"  : "server.json",
+      "database": "database.json"
     }
   }
 }
