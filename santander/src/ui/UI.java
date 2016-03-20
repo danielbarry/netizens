@@ -222,12 +222,7 @@ public class UI{
     }
 
     if("biometric".equals(name)){
-      try{
-        Thread.sleep(1000);
-      }catch(Exception e){
-
-      }
-      fingerprintMatch = executeCommand("../src/hardware/fingerprint/finger.bin -c");
+      fingerprintMatch = executeCommand("./finger.bin -c");
       Debug.println(fingerprintMatch);
       loadDisplay("checking");
     }
@@ -344,7 +339,7 @@ public class UI{
         /* TODO: Correctly communicate with server. */
         /* TODO: Remove below hack. */
         inputBuffer = "";
-        if(userPin.equals("1234") && "MATCH".equals(fingerprintMatch)){
+        if("1234".equals(userPin) && "MATCH".equals(fingerprintMatch)){
           loadDisplay("services");
         }else{
           loadDisplay("errormsg");
