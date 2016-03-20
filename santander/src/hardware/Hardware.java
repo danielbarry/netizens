@@ -50,7 +50,6 @@ public class Hardware{
         "-c"
       }
     );
-    /* TODO: Process the result. */
     return result;
   }
 
