@@ -335,7 +335,8 @@ static void generateHash(){
   /* Standardize image */
   fp_img_standardize(img);
   /* Get minutiae from image to generate the hash */
-  mMin = fp_img_get_minutiae(img);
+// TODO: Fix this code.
+//  mMin = fp_img_get_minutiae(img);
   /* Get list */
   mList = mMin->list;
   mLen = mMin->num;
