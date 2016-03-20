@@ -30,6 +30,12 @@ public class Hardware{
       case FINGERPRINT :
         hash = getFingerHash();
         break;
+      case RFID :
+        hash = getRFIDHash();
+        break;
+      case PIN :
+        hash = getPinHash();
+        break;
     }
     /* Return generated hash */
     return hash;
@@ -48,6 +54,42 @@ public class Hardware{
       new String[]{
         "./finger.bin",
         "-c"
+      }
+    );
+    return result;
+  }
+
+  /**
+   * getRFIDHash()
+   *
+   * Gets the hash of the RFID from the external program.
+   *
+   * @return The hash of the RFID, else NULL.
+   **/
+  private static String getRFIDHash(){
+    /* Run the program */
+    String result = runProgram(
+      new String[]{
+        "./keyboard.bin",
+        "10"
+      }
+    );
+    return result;
+  }
+
+  /**
+   * getPinHash()
+   *
+   * Gets the hash of the pin from the external program.
+   *
+   * @return The hash of the pin, else NULL.
+   **/
+  private static String getPinHash(){
+    /* Run the program */
+    String result = runProgram(
+      new String[]{
+        "./keyboard.bin",
+        "4"
       }
     );
     return result;
