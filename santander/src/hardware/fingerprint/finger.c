@@ -349,6 +349,7 @@ static void generateHash(){
        *   [ ] Remove minutiae that are not reliable enough
        *   [ ] Get mean distance to locals
        *   [ ] Standardize output value
+       *   [ ] Add type
        *   [ ] Build location based hash [x + (y * width)]
        **/
     }
