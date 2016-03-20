@@ -543,6 +543,14 @@ static void enrolFinger(){
   }
   /* Save enrolled print */
   r = fp_print_data_save(enrolled_print, RIGHT_INDEX);
+  /* Did we succeed? */
+  if(r < 0){
+    #if DEBUG == TRUE
+      debug("enrol failed with error");
+    #endif
+    /* Return early */
+    return;
+  }
   /* Free print data */
   fp_print_data_free(enrolled_print);
 }
