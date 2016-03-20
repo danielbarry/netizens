@@ -1,7 +1,7 @@
 {
   "window" : {
     "title"  : "Bank User Interface",
-    "back"   : "#EC0000",
+    "back"   : "#FCFFFF",
     "width"  : "1000",
     "height" : "736",
     "displays" : [
@@ -9,25 +9,35 @@
         "name" : "main",
         "elems" : [
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.2",
             "text"     : "Netizens Bank Demo",
             "top"      : "0.1",
             "type"     : "label",
-            "width"    : "0.6"
+            "width"    : "0.6",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.2",
             "left"     : "0.1",
             "location" : "card",
             "text"     : "Press to start",
             "top"      : "0.5",
             "type"     : "link",
-            "width"    : "0.8"
+            "width"    : "0.8",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
         ]
       },
@@ -35,25 +45,35 @@
         "name" : "card",
         "elems" : [
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.2",
             "text"     : "Netizens Bank Demo",
             "top"      : "0.1",
             "type"     : "label",
-            "width"    : "0.6"
+            "width"    : "0.6",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.2",
             "left"     : "0.1",
             "location" : "pin",
             "text"     : "Please touch card",
             "top"      : "0.5",
             "type"     : "link",
-            "width"    : "0.8"
+            "width"    : "0.8",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
         ]
       },
@@ -61,146 +81,211 @@
         "name" : "pin",
         "elems" : [
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.2",
             "text"     : "Netizens Bank Demo",
             "top"      : "0.1",
             "type"     : "label",
-            "width"    : "0.6"
+            "width"    : "0.6",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.15",
             "input"    : "1",
             "left"     : "0.2",
             "text"     : "1",
             "top"      : "0.2",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.15",
             "input"    : "2",
             "left"     : "0.4",
             "text"     : "2",
             "top"      : "0.2",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.15",
             "input"    : "3",
             "left"     : "0.6",
             "text"     : "3",
             "top"      : "0.2",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.15",
             "input"    : "4",
             "left"     : "0.2",
             "text"     : "4",
             "top"      : "0.4",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.15",
             "input"    : "5",
             "left"     : "0.4",
             "text"     : "5",
             "top"      : "0.4",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.15",
             "input"    : "6",
             "left"     : "0.6",
             "text"     : "6",
             "top"      : "0.4",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.15",
             "input"    : "7",
             "left"     : "0.2",
             "text"     : "7",
             "top"      : "0.6",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.15",
             "input"    : "8",
             "left"     : "0.4",
             "text"     : "8",
             "top"      : "0.6",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.15",
             "input"    : "9",
             "left"     : "0.6",
             "text"     : "9",
             "top"      : "0.6",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFF00",
-            "colour"   : "#000000",
+            "back"     : "#FFE427",
+            "colour"   : "#5E606B",
             "height"   : "0.15",
             "input"    : "CLEAR",
             "left"     : "0.2",
             "text"     : "CLEAR",
             "top"      : "0.8",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "38"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.15",
             "input"    : "0",
             "left"     : "0.4",
             "text"     : "0",
             "top"      : "0.8",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FF0000",
-            "colour"   : "#000000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.15",
             "input"    : "CANCEL",
             "left"     : "0.6",
             "text"     : "CANCEL",
             "top"      : "0.8",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "30"
+            }
           }
         ]
       },
@@ -208,35 +293,50 @@
         "name" : "biometric",
         "elems" : [
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.2",
             "text"     : "Netizens Bank Demo",
             "top"      : "0.1",
             "type"     : "label",
-            "width"    : "0.6"
+            "width"    : "0.6",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.2",
             "left"     : "0.1",
             "text"     : "Biometric",
             "top"      : "0.5",
             "type"     : "label",
-            "width"    : "0.8"
+            "width"    : "0.8",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#00FF00",
-            "colour"   : "#000000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.0",
             "location" : "checking",
             "text"     : "Next",
             "top"      : "0.0",
             "type"     : "link",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "42"
+            }
           }
         ]
       },
@@ -244,46 +344,66 @@
         "name" : "errormsg",
         "elems" : [
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.2",
             "text"     : "Netizens Bank Demo",
             "top"      : "0.1",
             "type"     : "label",
-            "width"    : "0.6"
+            "width"    : "0.6",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.2",
             "left"     : "0.1",
             "text"     : "Sorry, Unfortunately we were unable to authenticate you",
             "top"      : "0.5",
             "type"     : "label",
-            "width"    : "0.8"
+            "width"    : "0.8",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#000000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.25",
             "location" : "main",
             "text"     : "OK",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.5"
+            "width"    : "0.5",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#00FF00",
-            "colour"   : "#000000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.0",
             "location" : "services",
             "text"     : "Next",
             "top"      : "0.0",
             "type"     : "link",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "42"
+            }
           }
         ]
       },
@@ -291,36 +411,51 @@
         "name" : "checking",
         "elems" : [
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.2",
             "text"     : "Netizens Bank Demo",
             "top"      : "0.1",
             "type"     : "label",
-            "width"    : "0.6"
+            "width"    : "0.6",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#E5E5E5",
+            "colour"   : "#5E606B",
             "height"   : "0.2",
             "left"     : "0.1",
             "text"     : "Checking credentials...",
             "top"      : "0.5",
             "type"     : "label",
-            "width"    : "0.8"
+            "width"    : "0.8",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
           ,
           {
-            "back"     : "#00FF00",
-            "colour"   : "#000000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "input"    : "REMOVEME",
             "left"     : "0.0",
             "text"     : "Complete",
             "top"      : "0.0",
             "type"     : "input",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
         ]
       },
@@ -329,69 +464,99 @@
         "name" : "services",
         "elems" : [
          {
-            "back"     : "#00FF00",
-            "colour"   : "#000000",
+          "back"     : "#5E606B",
+          "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.0",
             "location" : "multipleserror",
             "text"     : "Next",
             "top"      : "0.0",
             "type"     : "link",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "42"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#000000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.2",
             "left"     : "0.1",
             "text"     : "Select a service",
             "top"      : "0.2",
             "type"     : "label",
-            "width"    : "0.8"
+            "width"    : "0.8",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.1",
             "location" : "balance",
             "text"     : "View Balance",
             "top"      : "0.5",
             "type"     : "link",
-            "width"    : "0.4"
+            "width"    : "0.4",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.1",
             "location" : "selectammount",
             "text"     : "Withdraw Cash",
             "top"      : "0.65",
             "type"     : "link",
-            "width"    : "0.4"
+            "width"    : "0.4",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.1",
             "location" : "printbalance",
             "text"     : "Print Reciept",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.4"
+            "width"    : "0.4",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.08",
             "left"     : "0.65",
             "location" : "main",
             "text"     : "Quit",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
         ]
       },
@@ -399,25 +564,35 @@
         "name" : "printbalance",
         "elems" : [
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#000000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.2",
             "left"     : "0.1",
             "text"     : "Your Reciept is Being Dispenced",
             "top"      : "0.2",
             "type"     : "label",
-            "width"    : "0.8"
+            "width"    : "0.8",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.08",
             "left"     : "0.65",
             "location" : "services",
             "text"     : "Okay",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
         ]
       },
@@ -425,46 +600,66 @@
         "name" : "balance",
         "elems" : [
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#000000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.2",
             "left"     : "0.1",
             "text"     : "Your Balance Is",
             "top"      : "0.2",
             "type"     : "label",
-            "width"    : "0.8"
+            "width"    : "0.8",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#000000",
+            "back"     : "#E5E5E5",
+            "colour"   : "#5E606B",
             "height"   : "0.2",
             "left"     : "0.2",
             "text"     : "BALANCE GOES HERE",
             "top"      : "0.45",
             "type"     : "label",
-            "width"    : "0.6"
+            "width"    : "0.6",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "40"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.1",
             "location" : "services",
             "text"     : "Return",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.4"
+            "width"    : "0.4",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.08",
             "left"     : "0.65",
             "location" : "printbalance",
             "text"     : "Print Balance",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
         ]
       },
@@ -472,25 +667,35 @@
         "name" : "printbalance",
         "elems" : [
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#000000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.2",
             "left"     : "0.1",
-            "text"     : "Your transaction is being processed. a Reciept will be Dispenced",
+            "text"     : "<html>Your transaction is being processed.<br/>A Reciept will be Dispenced</html>",
             "top"      : "0.2",
             "type"     : "label",
-            "width"    : "0.8"
+            "width"    : "0.8",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "35"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.08",
             "left"     : "0.65",
             "location" : "services",
-            "text"     : "return to menu",
+            "text"     : "Return to menu",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
         ]
       },
@@ -498,25 +703,35 @@
         "name" : "transactionpro",
         "elems" : [
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#000000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.2",
             "left"     : "0.1",
             "text"     : "Your transaction is being processed. No Reciept will be dispenced",
             "top"      : "0.2",
             "type"     : "label",
-            "width"    : "0.8"
+            "width"    : "0.8",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.08",
             "left"     : "0.65",
             "location" : "services",
-            "text"     : "return to menu",
+            "text"     : "Return to menu",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
         ]
       },
@@ -531,95 +746,140 @@
             "text"     : "Select Amount",
             "top"      : "0.2",
             "type"     : "label",
-            "width"    : "0.6"
+            "width"    : "0.6",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.10",
             "left"     : "0.55",
             "location" : "services",
-            "text"     : "return to menu",
+            "text"     : "Return to menu",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.35"
+            "width"    : "0.35",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.55",
             "location" : "wouldyoulikeareciept",
-            "text"     : "£ 70",
+            "text"     : "\u00A3 70",
             "top"      : "0.35",
             "type"     : "link",
-            "width"    : "0.35"
+            "width"    : "0.35",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.55",
             "location" : "wouldyoulikeareciept",
-            "text"     : "£ 100",
+            "text"     : "\u00A3100",
             "top"      : "0.5",
             "type"     : "link",
-            "width"    : "0.35"
+            "width"    : "0.35",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.05",
             "location" : "wouldyoulikeareciept",
-            "text"     : "£ 50",
+            "text"     : "\u00A3 50",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.35"
+            "width"    : "0.35",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.05",
             "location" : "wouldyoulikeareciept",
-            "text"     : "£ 40",
+            "text"     : "\u00A3 40",
             "top"      : "0.65",
             "type"     : "link",
-            "width"    : "0.35"
+            "width"    : "0.35",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.05",
             "location" : "wouldyoulikeareciept",
-            "text"     : "£ 20",
+            "text"     : "\u00A3 20",
             "top"      : "0.5",
             "type"     : "link",
-            "width"    : "0.35"
+            "width"    : "0.35",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.05",
             "location" : "wouldyoulikeareciept",
-            "text"     : "£ 10",
+            "text"     : "\u00A3 10",
             "top"      : "0.35",
             "type"     : "link",
-            "width"    : "0.35"
+            "width"    : "0.35",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.55",
             "location" : "customammount",
             "text"     : "Other Amount",
             "top"      : "0.65",
             "type"     : "link",
-            "width"    : "0.35"
+            "width"    : "0.35",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
         ]
       },
@@ -632,9 +892,14 @@
             "height"   : "0.1",
             "left"     : "0.2",
             "text"     : "Would you like a reciept with this transaction?",
-            "top"      : "0.2",
+            "top"      : "0.45",
             "type"     : "label",
-            "width"    : "0.6"
+            "width"    : "0.6",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -645,7 +910,12 @@
             "text"     : "Yes",
             "top"      : "0.65",
             "type"     : "link",
-            "width"    : "0.35"
+            "width"    : "0.35",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -656,7 +926,12 @@
             "text"     : "No",
             "top"      : "0.65",
             "type"     : "link",
-            "width"    : "0.35"
+            "width"    : "0.35",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
         ]
       },
@@ -671,7 +946,12 @@
             "text"     : "Please enter a value in a multiple of 10 then press okay",
             "top"      : "0.1",
             "type"     : "label",
-            "width"    : "0.8"
+            "width"    : "0.8",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -681,7 +961,12 @@
             "text"     : "CUSTOM VALUE READ FROM INPUTSTREAM",
             "top"      : "0.25",
             "type"     : "label",
-            "width"    : "0.5"
+            "width"    : "0.5",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -692,7 +977,12 @@
             "text"     : "1",
             "top"      : "0.4",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -703,7 +993,12 @@
             "text"     : "2",
             "top"      : "0.4",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -714,7 +1009,12 @@
             "text"     : "3",
             "top"      : "0.4",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -725,7 +1025,12 @@
             "text"     : "4",
             "top"      : "0.55",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -736,7 +1041,12 @@
             "text"     : "5",
             "top"      : "0.55",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -747,7 +1057,12 @@
             "text"     : "6",
             "top"      : "0.55",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -758,7 +1073,12 @@
             "text"     : "7",
             "top"      : "0.7",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -769,7 +1089,12 @@
             "text"     : "8",
             "top"      : "0.7",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -780,7 +1105,12 @@
             "text"     : "9",
             "top"      : "0.7",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFF00",
@@ -791,7 +1121,12 @@
             "text"     : "CLEAR",
             "top"      : "0.85",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -802,7 +1137,12 @@
             "text"     : "0",
             "top"      : "0.85",
             "type"     : "input",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FF0000",
@@ -814,7 +1154,12 @@
             "text"     : "CANCEL",
             "top"      : "0.85",
             "type"     : "link",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FF0000",
@@ -826,7 +1171,12 @@
             "text"     : "CANCEL",
             "top"      : "0.85",
             "type"     : "link",
-            "width"    : "0.15"
+            "width"    : "0.15",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
         ]
       },
@@ -834,15 +1184,20 @@
         "name" : "multipleserror",
         "elems" : [
           {
-            "back"     : "#00FF00",
-            "colour"   : "#000000",
+            "back"     : "#5E606B",
+            "colour"   : "#FCFFFF",
             "height"   : "0.1",
             "left"     : "0.0",
             "location" : "insufficiantfunds",
             "text"     : "Next",
             "top"      : "0.0",
             "type"     : "link",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "42"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -852,18 +1207,28 @@
             "text"     : "Sorry, you must enter a number which is a multiple of 10",
             "top"      : "0.2",
             "type"     : "label",
-            "width"    : "0.8"
+            "width"    : "0.8",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.08",
             "left"     : "0.65",
             "location" : "customammount",
-            "text"     : "return",
+            "text"     : "Return",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -874,7 +1239,12 @@
             "text"     : "Cancel transaction",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
         ]
       },
@@ -889,18 +1259,28 @@
             "text"     : "Sorry, it appears you have insufficiant funds to complete this transaction",
             "top"      : "0.2",
             "type"     : "label",
-            "width"    : "0.8"
+            "width"    : "0.8",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
-            "back"     : "#FFFFFF",
-            "colour"   : "#FF0000",
+            "back"     : "#EC0000",
+            "colour"   : "#FCFFFF",
             "height"   : "0.08",
             "left"     : "0.65",
             "location" : "services",
-            "text"     : "return to services",
+            "text"     : "Return to services",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           },
           {
             "back"     : "#FFFFFF",
@@ -911,7 +1291,12 @@
             "text"     : "Try a smaller amount",
             "top"      : "0.8",
             "type"     : "link",
-            "width"    : "0.2"
+            "width"    : "0.2",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "-1"
+            }
           }
         ]
       },

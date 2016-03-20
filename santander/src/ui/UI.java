@@ -120,6 +120,8 @@ public class UI{
       JSONObject elems = disp.getJSONObject(x);
       /* Get the type to decide what to do next */
       String type = elems.getString("type");
+      /* Get the font object */
+      JSONObject font = elems.getJSONObject("font");
       /* Pre-define variables used more than once */
       JLabel jLabel;
       switch(type){
@@ -133,8 +135,8 @@ public class UI{
           jLabel.setBackground(Colour.cast(elems.getString("back")));
           /* Set the size */
           setSize(jLabel, elems);
-          /* Choose a font size that work for the allocated space */
-          resizeableFont(jLabel);
+          /* Set the font of the label */
+          setFont(jLabel, font);
           /* Add the label to the frame */
           gui.add(jLabel);
           /* Add JLabel to array */
@@ -150,8 +152,8 @@ public class UI{
           jLabel.setBackground(Colour.cast(elems.getString("back")));
           /* Set the size */
           setSize(jLabel, elems);
-          /* Choose a font size that work for the allocated space */
-          resizeableFont(jLabel);
+          /* Set the font of the label */
+          setFont(jLabel, font);
           /* Add mouse listener */
           jLabel.addMouseListener(
             new MouseAdapter(){
@@ -177,8 +179,8 @@ public class UI{
           jLabel.setBackground(Colour.cast(elems.getString("back")));
           /* Set the size */
           setSize(jLabel, elems);
-          /* Choose a font size that work for the allocated space */
-          resizeableFont(jLabel);
+          /* Set the font of the label */
+          setFont(jLabel, font);
           /* Add mouse listener */
           jLabel.addMouseListener(
             new MouseAdapter(){
@@ -208,21 +210,50 @@ public class UI{
   }
 
   /**
-   * resizeableFont()
+   * setFont()
    *
-   * Make the font of a label resizeable.
+   * Set the font of the label with the parameters defined in the JSON
+   * if no parameters are defined, then the font will fill the label
    *
-   * @param jLabel The label to make resizeable text.
+   * @param jLabel The label to style the text of.
+   * @param font The font information to style the text with
    **/
-  private void resizeableFont(JLabel jLabel){
-    /* NOTE: http://stackoverflow.com/questions/2715118/how-to-change-the-size-of-the-font-of-a-jlabel-to-take-the-maximum-size#2715279 */
+  private void setFont(JLabel jLabel, JSONObject font){
     Font labelFont = jLabel.getFont();
-    String labelText = jLabel.getText();
-    int stringWidth = jLabel.getFontMetrics(labelFont).stringWidth(labelText);
-    double widthRatio = (double)(jLabel.getWidth()) / (double)stringWidth;
-    int newFontSize = (int)(labelFont.getSize() * widthRatio);
-    int fontSizeToUse = Math.min(newFontSize, jLabel.getHeight());
-    jLabel.setFont(new Font(labelFont.getName(), Font.PLAIN, fontSizeToUse));
+    /* initialise the font variables */
+    String fontName = font.getString("name");
+    int fontStyle;
+    int fontSize = font.getInt("size");
+    /* if the font name is blank, use the default one */
+    if("".equals(fontName)){
+      fontName = labelFont.getName();
+    }
+    /* if the style is blank, use the plain font */
+    switch(font.getString("style").toUpperCase()){
+      case "BOLD":
+        fontStyle = Font.BOLD;
+        break;
+      case "ITALIC":
+        fontStyle = Font.ITALIC;
+        break;
+      case "BOLD+ITALIC":
+        fontStyle = Font.BOLD + Font.ITALIC;
+        break;
+      case "PLAIN": /* Falls through */
+      default:
+        fontStyle = Font.PLAIN;
+        break;
+    }
+    /* If the size is -1, then automatically fill the label with the largest font that will fit */
+    if(fontSize < 0){
+      /* NOTE: http://stackoverflow.com/questions/2715118/how-to-change-the-size-of-the-font-of-a-jlabel-to-take-the-maximum-size#2715279 */
+      String labelText = jLabel.getText();
+      int stringWidth = jLabel.getFontMetrics(labelFont).stringWidth(labelText);
+      double widthRatio = (double)(jLabel.getWidth()) / (double)stringWidth;
+      int newFontSize = (int)(labelFont.getSize() * widthRatio);
+      fontSize = Math.min(newFontSize, jLabel.getHeight());
+    }
+    jLabel.setFont(new Font(fontName, fontStyle, fontSize));
   }
 
   /**
