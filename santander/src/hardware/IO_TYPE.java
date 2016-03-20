@@ -6,5 +6,5 @@ package netizens.bank.hardware;
  * This enumerator declares the types of hardware inputs.
  **/
 public enum IO_TYPE{
-  FINGERPRINT
+  FINGERPRINT, RFID, PIN
 }
