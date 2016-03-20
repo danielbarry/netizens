@@ -331,6 +331,7 @@ public class UI{
           inputBuffer = "";
           /* Load the next screen */
           loadDisplay("biometric");
+          loadDisplay("checking");
         }
         break;
       case "checking" :
