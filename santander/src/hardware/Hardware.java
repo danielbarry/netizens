@@ -48,7 +48,7 @@ public class Hardware{
    *
    * @return The hash of the fingerprint, else NULL.
    **/
-  private static String getFingerHash(){
+  public static String getFingerHash(){
     /* Run the program */
     String result = runProgram(
       new String[]{
@@ -66,7 +66,7 @@ public class Hardware{
    *
    * @return The hash of the RFID, else NULL.
    **/
-  private static String getRFIDHash(){
+  public static String getRFIDHash(){
     /* Run the program */
     String result = runProgram(
       new String[]{
@@ -138,6 +138,6 @@ public class Hardware{
       Error.safeThrow(e, false);
     }
     /* Return the result of the buffer */
-    return buffer;
+    return buffer.trim();
   }
 }

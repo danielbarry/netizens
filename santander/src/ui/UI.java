@@ -14,6 +14,7 @@ import javax.swing.SwingConstants;
 import netizens.bank.Main;
 import netizens.bank.utils.Debug;
 import netizens.bank.utils.JSON;
+import netizens.bank.hardware.Hardware;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -221,8 +222,14 @@ public class UI{
       gui.paint(gui.getGraphics());
     }
 
+    if("card".equals(name)){
+      String cardMatch = Hardware.getRFIDHash();
+      Debug.println(cardMatch);
+      loadDisplay("pin");
+    }
+
     if("biometric".equals(name)){
-      fingerprintMatch = executeCommand("./finger.bin -c");
+      fingerprintMatch = Hardware.getFingerHash();
       Debug.println(fingerprintMatch);
       loadDisplay("checking");
     }
@@ -348,24 +355,24 @@ public class UI{
     }
   }
 
-  public String executeCommand(String command){
-    System.out.println("Executing::" + command);
-    String output = "";
+  // public String executeCommand(String command){
+  //   System.out.println("Executing::" + command);
+  //   String output = "";
 
-    Process p;
-    try{
-      p = Runtime.getRuntime().exec(command);
-      p.waitFor();
-      BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-      String line = "";
-      while((line = reader.readLine()) != null){
-        output += line;
-      }
-    }catch(Exception e){
-      System.err.println(e);
-      // e.printStackTrace();
-    }
+  //   Process p;
+  //   try{
+  //     p = Runtime.getRuntime().exec(command);
+  //     p.waitFor();
+  //     BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+  //     String line = "";
+  //     while((line = reader.readLine()) != null){
+  //       output += line;
+  //     }
+  //   }catch(Exception e){
+  //     System.err.println(e);
+  //     // e.printStackTrace();
+  //   }
 
-    return output;
-  }
+  //   return output;
+  // }
 }
