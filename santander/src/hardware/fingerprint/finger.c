@@ -344,6 +344,13 @@ static void generateHash(){
 	printf("%i,", mList[z]->feature_id);
         printf("\n");
       #endif
+      /**
+       * TODO: For the hash this must be done:
+       *   [ ] Remove minutiae that are not reliable enough
+       *   [ ] Get mean distance to locals
+       *   [ ] Standardize output value
+       *   [ ] Build location based hash [x + (y * width)]
+       **/
     }
   }else{
     /* Debug points collected */
