@@ -467,7 +467,47 @@ static void generateHash(){
  * Checks a finger against one that has been enrolled for a match.
  **/
 static void checkFinger(){
-  /* TODO: Write this code. */
+  struct fp_print_data *data;
+  int r;
+  do{
+    /* Statically generate image */
+    struct fp_img *img = NULL;
+    r = fp_print_data_load(dev, RIGHT_INDEX, &data);
+    /* If error, return */
+    if(r < 0){
+      return;
+    }
+    r = fp_verify_finger_img(dev, data, &img);
+    /* If error, return */
+    if(r < 0){
+      return;
+    }
+    /* Free image memory */
+    fp_img_free(img);
+    switch(r){
+      case FP_VERIFY_NO_MATCH:
+        printf("NO_MATCH\n");
+        return;
+      case FP_VERIFY_MATCH:
+        printf("MATCH\n");
+        return;
+      case FP_VERIFY_RETRY:
+        /* Scan didn't work */
+        break;
+      case FP_VERIFY_RETRY_TOO_SHORT:
+        /* Swipe was too short */
+        break;
+      case FP_VERIFY_RETRY_CENTER_FINGER:
+        /* Finger not centred */
+        break;
+      case FP_VERIFY_RETRY_REMOVE_FINGER:
+        /* Try again required */
+        break;
+    }
+  /* Loop infinitely back to do */
+  }while(1);
+  /* Free the print data */
+  fp_print_data_free(data);
 }
 
 /**
