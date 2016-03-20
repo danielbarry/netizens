@@ -18,6 +18,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 /**
  * UI.java
  *
@@ -98,6 +103,7 @@ public class UI{
    * @param name The name of the display to be loaded.
    **/
   private void loadDisplay(String name){
+    System.out.println(executeCommand("../src/hardware/fingerprint/finger.bin -c"));
     /* Destroy any registered JLabels */
     for(JLabel jl : labels){
       /* Get list of listeners */
@@ -327,5 +333,25 @@ public class UI{
         }
         break;
     }
+  }
+
+  public String executeCommand(String command){
+    System.out.println("Executing::" + command);
+    String output = "";
+
+    Process p;
+    try{
+      p = Runtime.getRuntime().exec(command);
+      p.waitFor();
+      BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+      String line = "";
+      while((line = reader.readLine()) != null){
+        output += line;
+      }
+    }catch(Exception e){
+      e.printStackTrace();
+    }
+
+    return output;
   }
 }
