@@ -38,6 +38,10 @@ public class UI{
 
   private String userPin;
 
+
+
+  private String fingerprintMatch = "";
+
   /**
    * UI()
    *
@@ -212,6 +216,14 @@ public class UI{
       gui.revalidate();
       gui.repaint();
     }
+
+
+    if("biometric".equals(name)){
+      fingerprintMatch = executeCommand("../src/hardware/fingerprint/finger.bin -c");
+      Debug.println(fingerprintMatch);
+    }
+
+
   }
 
   /**
@@ -304,7 +316,6 @@ public class UI{
     Debug.println("mode -> " + mode);
     Debug.println("text -> " + text);
     Debug.println("inputBuffer -> " + inputBuffer);
-    String fingerprintMatch = "";
     /* Process the text */
     switch(mode){
       case "pin" :
@@ -320,14 +331,12 @@ public class UI{
           inputBuffer = "";
           /* Load the next screen */
           loadDisplay("biometric");
-          fingerprintMatch = executeCommand("../src/hardware/fingerprint/finger.bin -c");
         }
         break;
       case "checking" :
         /* TODO: Correctly communicate with server. */
         /* TODO: Remove below hack. */
         inputBuffer = "";
-        Debug.println(fingerprintMatch);
         if(userPin.equals("1234") && "MATCH".equals(fingerprintMatch)){
           loadDisplay("services");
         }else{
