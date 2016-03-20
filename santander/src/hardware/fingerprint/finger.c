@@ -476,6 +476,53 @@ static void checkFinger(){
  * Enrols a finger into the finger database.
  **/
 static void enrolFinger(){
+  struct fp_print_data *enrolled_print = NULL;
+  int r;
+  /* Scan finger into system */
+  do{
+    /* Store temporary finger image */
+    struct fp_img *img = NULL;
+    printf("\nScan your finger now.\n");
+    /* Enrol the finger image */
+    r = fp_enroll_finger_img(dev, &enrolled_print, &img);
+    /* Free up the finger memory space */
+    fp_img_free(img);
+    /* Did we succeed? */
+    if(r < 0){
+      printf("Enrol failed with error %d\n", r);
+      /* Return early */
+      return;
+    }
+    /* Display message on scan success */
+    switch(r){
+      case FP_ENROLL_COMPLETE:
+        printf("Enrol complete!\n");
+        break;
+      case FP_ENROLL_FAIL:
+        printf("Enrol failed, something went wrong.\n");
+        break;
+      case FP_ENROLL_PASS:
+        printf("Enrol stage passed.\n");
+        break;
+      case FP_ENROLL_RETRY:
+        printf("Scan failed, please try again.\n");
+        break;
+      case FP_ENROLL_RETRY_TOO_SHORT:
+        printf("Swipe too short, please try again.\n");
+        break;
+      case FP_ENROLL_RETRY_CENTER_FINGER:
+        printf("Please centre finger and try again.\n");
+        break;
+      case FP_ENROLL_RETRY_REMOVE_FINGER:
+        printf("Scan failed, please try again.\n");
+        break;
+    }
+  /* Keep getting fingers until completed */
+  }while(r != FP_ENROLL_COMPLETE);
+  /* This error should not be thrown */
+  if(!enrolled_print){
+    fprintf(stderr, "Enrol complete but no print?\n");
+  }
 }
 
 /**
