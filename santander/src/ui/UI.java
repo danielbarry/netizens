@@ -218,7 +218,7 @@ public class UI{
     }
 
 
-    if("biometric".equals(name)){
+    if("checking".equals(name)){
       fingerprintMatch = executeCommand("../src/hardware/fingerprint/finger.bin -c");
       Debug.println(fingerprintMatch);
     }
