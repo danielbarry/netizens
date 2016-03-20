@@ -30,7 +30,6 @@ static bool openDevice();
 static bool closeDevice();
 static void saveImage();
 static void generateHash();
-static void train();
 static void debug(const char* msg);
 static void displayHelp();
 static void displayVersion();
@@ -70,7 +69,6 @@ int main(int argc, char** argv){
   switch(opt){
     case 'g' :
     case 'i' :
-    case 't' :
       /* Ready hardware */
       okay = initHardware();
       if(!okay){
@@ -106,10 +104,6 @@ int main(int argc, char** argv){
       /* Save image */
       saveImage();
       break;
-    case 't' :
-      /* Train hash */
-      train();
-      break;
     case 'v' :
       displayVersion();
       break;
@@ -120,7 +114,6 @@ int main(int argc, char** argv){
   switch(opt){
     case 'g' :
     case 'i' :
-    case 't' :
       okay = closeDevice();
       if(!okay){
         #if DEBUG == TRUE
@@ -452,15 +445,6 @@ static void generateHash(){
       debug("failed to save standardized image");
     #endif
   }
-}
-
-/**
- * train()
- *
- * Trains a fingerprint so that a hash may be made.
- **/
-static void train(){
-  /* TODO: Write code. */
 }
 
 /**
