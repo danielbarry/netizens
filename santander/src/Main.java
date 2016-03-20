@@ -23,11 +23,13 @@ public class Main{
    **/
   public static void main(String[] args) throws InterruptedException{
     /* Hook into the shutdown hook for this runtime */
-    /* NOTE: No code before this point! */
-    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-        /* Warn ourselves of what has happened so that we may handle it */
-        exit(EXIT_STATUS.UNPLANNED);
-      })
+    Runtime.getRuntime().addShutdownHook(new Thread() {
+        @Override
+        public void run(){
+          /* Warn ourselves of what has happened so that we may handle it */
+          exit(EXIT_STATUS.UNPLANNED);          
+        }
+      }
     );
     /* Give the arguments to the next layer to handle */
     Bank bank = new Bank(args);
