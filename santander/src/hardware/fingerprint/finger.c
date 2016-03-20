@@ -475,7 +475,6 @@ static void displayHelp(){
   printf("    -g    Generate a fingerprint hash\n");
   printf("    -h    Display this message\n");
   printf("    -i    Generate a fingerprint image\n");
-  printf("    -t    Train a fingerprint hash\n");
   printf("    -v    Display version\n");
   printf("\n");
 }
