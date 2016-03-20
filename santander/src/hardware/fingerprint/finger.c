@@ -22,7 +22,7 @@
 #define FALSE 0
 
 /* Configuration */
-#define DEBUG TRUE
+#define DEBUG FALSE
 
 /* Static declaration of methods */
 static bool initHardware();
