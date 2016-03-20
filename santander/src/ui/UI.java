@@ -82,7 +82,7 @@ public class UI{
     /* Do not resize once setup */
     gui.setResizable(false);
     /* Don't display any window rubbish */
-    gui.setUndecorated(true);
+    gui.setUndecorated(false);
     /* Stop the GUI trying to do it's own layout management */
     gui.getContentPane().setLayout(null);
 
@@ -103,7 +103,6 @@ public class UI{
    * @param name The name of the display to be loaded.
    **/
   private void loadDisplay(String name){
-    System.out.println(executeCommand("../src/hardware/fingerprint/finger.bin -c"));
     /* Destroy any registered JLabels */
     for(JLabel jl : labels){
       /* Get list of listeners */
@@ -305,6 +304,7 @@ public class UI{
     Debug.println("mode -> " + mode);
     Debug.println("text -> " + text);
     Debug.println("inputBuffer -> " + inputBuffer);
+    String fingerprintMatch = "";
     /* Process the text */
     switch(mode){
       case "pin" :
@@ -320,13 +320,15 @@ public class UI{
           inputBuffer = "";
           /* Load the next screen */
           loadDisplay("biometric");
+          fingerprintMatch = executeCommand("../src/hardware/fingerprint/finger.bin -c");
         }
         break;
       case "checking" :
         /* TODO: Correctly communicate with server. */
         /* TODO: Remove below hack. */
         inputBuffer = "";
-        if(userPin.equals("1234")){
+        Debug.println(fingerprintMatch);
+        if(userPin.equals("1234") && "MATCH".equals(fingerprintMatch)){
           loadDisplay("services");
         }else{
           loadDisplay("errormsg");
@@ -349,7 +351,8 @@ public class UI{
         output += line;
       }
     }catch(Exception e){
-      e.printStackTrace();
+      System.err.println(e);
+      // e.printStackTrace();
     }
 
     return output;
