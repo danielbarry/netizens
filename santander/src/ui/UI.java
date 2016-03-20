@@ -47,6 +47,17 @@ public class UI{
   private String fingerprintMatch = "";
   public int userAmount = 5000;
 
+  /**
+   * getVariable()
+   *
+   * Allows the retrieval of a specified public variable in the code, returned
+   * in the form of an object that can be cast to it's original type. The
+   * assumption is that the user of the object knows everything about the
+   * object beforehand as information cannot be inferred with this method.
+   *
+   * @param n The name of the variable.
+   * @return The object to be returned if found, else NULL.
+   **/
   private Object getVariable(String n){
     Class<?> objClass = UI.this.getClass();
     Field[] fields = objClass.getFields();
