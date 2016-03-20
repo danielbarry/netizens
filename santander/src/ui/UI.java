@@ -22,6 +22,10 @@ import org.json.JSONTokener;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import javax.swing.SwingUtilities;
+
+
+
 
 /**
  * UI.java
@@ -214,16 +218,19 @@ public class UI{
     /* Validate process */
     if(gui.isVisible()){
       gui.revalidate();
-      gui.repaint();
+      gui.paint(gui.getGraphics());
     }
 
+    if("biometric".equals(name)){
+      try{
+        Thread.sleep(1000);
+      }catch(Exception e){
 
-    if("checking".equals(name)){
+      }
       fingerprintMatch = executeCommand("../src/hardware/fingerprint/finger.bin -c");
       Debug.println(fingerprintMatch);
+      loadDisplay("checking");
     }
-
-
   }
 
   /**
@@ -331,7 +338,6 @@ public class UI{
           inputBuffer = "";
           /* Load the next screen */
           loadDisplay("biometric");
-          loadDisplay("checking");
         }
         break;
       case "checking" :
