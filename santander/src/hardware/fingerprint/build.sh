@@ -6,7 +6,7 @@ rm *.pgm
 echo ">>>> Old files removed..."
 
 echo ">>>> Building binary..."
-gcc finger.c -l fprint -o finger.bin
+gcc -g finger.c -l fprint -o finger.bin
 echo ">>>> Binary built..."
 
 echo ">>>> Changing binary permissions..."
