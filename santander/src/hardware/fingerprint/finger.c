@@ -300,8 +300,13 @@ static void saveImage(){
  **/
 static void generateHash(){
   int r;
+  struct fp_minutiae *mMin = NULL;
+  struct fp_minutia **mList = NULL;
   struct fp_img *img = NULL;
-  struct fp_img *imgBin = NULL;
+  int mLen = 0;
+  #if DEBUG == TRUE
+    int z;
+  #endif
   /* Capture image */
   r = fp_dev_img_capture(dev, 0, &img);
   /* Check whether than has been an error */
@@ -313,9 +318,35 @@ static void generateHash(){
   }
   /* Standardize image */
   fp_img_standardize(img);
-  /* Binarize image */
-  imgBin = fp_img_binarize(img);
-  /* TODO: Generate hash. */
+  /* Get minutiae from image to generate the hash */
+  mMin = fp_img_get_minutiae(img);
+  /* Debug points collected */
+  #if DEBUG == TRUE
+    /* Get list */
+    mList = mMin->list;
+    mLen = mMin->num;
+    /* Check whether list is returned */
+    if(mList){
+      printf("count -> %i", mLen);
+      printf("z,x,y,ex,ey,dir,rel,typ,app,ftr\n");
+      for(z = 0; z < mLen; z++){
+        printf("%i,", z);
+        printf("%i,", mList[z]->x);
+        printf("%i,", mList[z]->y);
+        printf("%i,", mList[z]->ex);
+        printf("%i,", mList[z]->ey);
+	printf("%i,", mList[z]->direction);
+        printf("%f,", mList[z]->reliability);
+	printf("%i,", mList[z]->type);
+	printf("%i,", mList[z]->appearing);
+	printf("%i,", mList[z]->feature_id);
+        printf("\n");
+      }
+    }else{
+      /* NULL returned */
+      debug("failed to get minutiae");
+    }
+  #endif
   /* Free memory */
   fp_img_free(img);
   /* Check whether than has been an error */
