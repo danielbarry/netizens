@@ -306,160 +306,159 @@ static void saveImage(){
  * output stream.
  **/
 static void generateHash(){
-  int r;
-  struct fp_minutiae *mMin = NULL;
-  struct fp_minutia **mList = NULL;
-  struct fp_img *img = NULL;
-  int mLen = 0;
-  int z;
-  int w;
-  int xHash[150];
-  int yHash[150];
-  double rHash[150];
-  int tHash[150];
-  int dHash[150];
-  int hLen = 0;
-  int dist;
-  int local;
-  int lLen;
-  double worst;
-  /* Capture image */
-  r = fp_dev_img_capture(dev, 0, &img);
-  /* Check whether than has been an error */
-  if(r != 0){
-    /* Indicate issue */
-    #if DEBUG == TRUE
-      debug("failed to capture image");
-    #endif
-  }
-  /* Standardize image */
-  fp_img_standardize(img);
-  /* Get minutiae from image to generate the hash */
-// TODO: Fix this code.
+//  int r;
+//  struct fp_minutiae *mMin = NULL;
+//  struct fp_minutia **mList = NULL;
+//  struct fp_img *img = NULL;
+//  int mLen = 0;
+//  int z;
+//  int w;
+//  int xHash[150];
+//  int yHash[150];
+//  double rHash[150];
+//  int tHash[150];
+//  int dHash[150];
+//  int hLen = 0;
+//  int dist;
+//  int local;
+//  int lLen;
+//  double worst;
+//  /* Capture image */
+//  r = fp_dev_img_capture(dev, 0, &img);
+//  /* Check whether than has been an error */
+//  if(r != 0){
+//    /* Indicate issue */
+//    #if DEBUG == TRUE
+//      debug("failed to capture image");
+//    #endif
+//  }
+//  /* Standardize image */
+//  fp_img_standardize(img);
+//  /* Get minutiae from image to generate the hash */
 //  mMin = fp_img_get_minutiae(img);
-  /* Get list */
-  mList = mMin->list;
-  mLen = mMin->num;
-  /* Check whether list is returned */
-  if(mList){
-  /* Debug points collected */
-  #if DEBUG == TRUE
-    printf("count -> %i", mLen);
-    printf("z,x,y,ex,ey,dir,rel,typ,app,ftr\n");
-  #endif
-    /* Loop through the points */
-    for(z = 0; z < mLen; z++){
-      /* Debug points collected */
-      #if DEBUG == TRUE
-        printf("%i,", z);
-        printf("%i,", mList[z]->x);
-        printf("%i,", mList[z]->y);
-        printf("%i,", mList[z]->ex);
-        printf("%i,", mList[z]->ey);
-	printf("%i,", mList[z]->direction);
-        printf("%f,", mList[z]->reliability);
-	printf("%i,", mList[z]->type);
-	printf("%i,", mList[z]->appearing);
-	printf("%i,", mList[z]->feature_id);
-        printf("\n");
-      #endif
-      /**
-       * TODO: For the hash this must be done:
-       *   [/] Remove minutiae that are not reliable enough
-       *   [/] Get mean distance to locals
-       *   [/] Add type
-       *   [ ] Build location based hash [x + (y * width)]
-       **/
-      ///* Save minutiae that are accurate enough */
-      //if(mList[z]->reliability >= 0.8){
-        /* Store important data */
-        xHash[hLen] = mList[z]->ex;
-        yHash[hLen] = mList[z]->ey;
-        rHash[hLen] = mList[z]->reliability;
-        tHash[hLen] = mList[z]->type;
-        /* Increment length of stored data */
-        hLen++;
-      //}
-    }
-    /* Make sure the list is large enough and remove stragglers */
-    if(hLen < 10){
-      /* Indicate error */
-      printf("ERROR\n");
-    }else{
-      while(hLen > 10){
-        /* Remove extra points */
-        worst = 2;
-        /* Position of worst */
-        w = 0;
-        /* Find worst reliability */
-        for(z = 0; z < hLen; z++){
-          if(rHash[z] < worst){
-            /* Store new worst */
-            worst = rHash[z];
-            w = z;
-          }
-        }
-        /* Re-copy array without worst */
-        for(z = 0; z < hLen; z++){
-          /* When worst found, shift copy over */
-          if(z >= w){
-            xHash[z] = xHash[z + 1];
-            yHash[z] = yHash[z + 1];
-            rHash[z] = rHash[z + 1];
-            tHash[z] = tHash[z + 1];
-          }
-        }
-        /* Decrement size of array */
-        hLen--;
-      }
-    }
-    /* Get mean distance to locals */
-    for(z = 0; z < hLen; z++){
-      /* Reset local sum */
-      local = 0;
-      /* Reset local count */
-      lLen = 0;
-      /* Iterate over locals (really hacked for speed!) */
-      for(w = 0; w < hLen; w++){
-        /* TODO: Method not very robust to rotation. */
-        /* Generate distance (hacked) */
-        dist = (xHash[z] + yHash[z]) - (xHash[w] + yHash[w]);
-        dist = dist >= 0 ? dist : -dist;
-        /* If distance is low enough, store neighbour */
-        if(dist <= 50){
-          /* Sum locals */
-          local += dist;
-          /* Increment count */
-          lLen++;
-        }
-        /* Save locals distance */
-        if(lLen > 0){
-          dHash[z] = (int)(local / lLen) >> 3;
-        }else{
-          dHash[z] = 0;
-        }
-      }
-      /* Debug hash data */
-      #if DEBUG == TRUE
-        printf("[%i] RAW -> (%i, %i, %f), %i, %i\n", z, xHash[z], yHash[z], rHash[z], tHash[z], dHash[z]);
-      #endif
-    }
-  }else{
-    /* Debug points collected */
-    #if DEBUG == TRUE
-      /* NULL returned */
-      debug("failed to get minutiae");
-    #endif
-  }
-  /* Free memory */
-  fp_img_free(img);
-  /* Check whether than has been an error */
-  if(r != 0){
-    /* Indicate issue */
-    #if DEBUG == TRUE
-      debug("failed to save standardized image");
-    #endif
-  }
+//  /* Get list */
+//  mList = mMin->list;
+//  mLen = mMin->num;
+//  /* Check whether list is returned */
+//  if(mList){
+//  /* Debug points collected */
+//  #if DEBUG == TRUE
+//    printf("count -> %i", mLen);
+//    printf("z,x,y,ex,ey,dir,rel,typ,app,ftr\n");
+//  #endif
+//    /* Loop through the points */
+//    for(z = 0; z < mLen; z++){
+//      /* Debug points collected */
+//      #if DEBUG == TRUE
+//        printf("%i,", z);
+//        printf("%i,", mList[z]->x);
+//        printf("%i,", mList[z]->y);
+//        printf("%i,", mList[z]->ex);
+//        printf("%i,", mList[z]->ey);
+//        printf("%i,", mList[z]->direction);
+//        printf("%f,", mList[z]->reliability);
+//        printf("%i,", mList[z]->type);
+//        printf("%i,", mList[z]->appearing);
+//        printf("%i,", mList[z]->feature_id);
+//        printf("\n");
+//      #endif
+//      /**
+//       * TODO: For the hash this must be done:
+//       *   [/] Remove minutiae that are not reliable enough
+//       *   [/] Get mean distance to locals
+//       *   [/] Add type
+//       *   [ ] Build location based hash [x + (y * width)]
+//       **/
+//      ///* Save minutiae that are accurate enough */
+//      //if(mList[z]->reliability >= 0.8){
+//        /* Store important data */
+//        xHash[hLen] = mList[z]->ex;
+//        yHash[hLen] = mList[z]->ey;
+//        rHash[hLen] = mList[z]->reliability;
+//        tHash[hLen] = mList[z]->type;
+//        /* Increment length of stored data */
+//        hLen++;
+//      //}
+//    }
+//    /* Make sure the list is large enough and remove stragglers */
+//    if(hLen < 10){
+//      /* Indicate error */
+//      printf("ERROR\n");
+//    }else{
+//      while(hLen > 10){
+//        /* Remove extra points */
+//        worst = 2;
+//        /* Position of worst */
+//        w = 0;
+//        /* Find worst reliability */
+//        for(z = 0; z < hLen; z++){
+//          if(rHash[z] < worst){
+//            /* Store new worst */
+//            worst = rHash[z];
+//            w = z;
+//          }
+//        }
+//        /* Re-copy array without worst */
+//        for(z = 0; z < hLen; z++){
+//          /* When worst found, shift copy over */
+//          if(z >= w){
+//            xHash[z] = xHash[z + 1];
+//            yHash[z] = yHash[z + 1];
+//            rHash[z] = rHash[z + 1];
+//            tHash[z] = tHash[z + 1];
+//          }
+//        }
+//        /* Decrement size of array */
+//        hLen--;
+//      }
+//    }
+//    /* Get mean distance to locals */
+//    for(z = 0; z < hLen; z++){
+//      /* Reset local sum */
+//      local = 0;
+//      /* Reset local count */
+//      lLen = 0;
+//      /* Iterate over locals (really hacked for speed!) */
+//      for(w = 0; w < hLen; w++){
+//        /* TODO: Method not very robust to rotation. */
+//        /* Generate distance (hacked) */
+//        dist = (xHash[z] + yHash[z]) - (xHash[w] + yHash[w]);
+//        dist = dist >= 0 ? dist : -dist;
+//        /* If distance is low enough, store neighbour */
+//        if(dist <= 50){
+//          /* Sum locals */
+//          local += dist;
+//          /* Increment count */
+//          lLen++;
+//        }
+//        /* Save locals distance */
+//        if(lLen > 0){
+//          dHash[z] = (int)(local / lLen) >> 3;
+//        }else{
+//          dHash[z] = 0;
+//        }
+//      }
+//      /* Debug hash data */
+//      #if DEBUG == TRUE
+//        printf("[%i] RAW -> (%i, %i, %f), %i, %i\n", z, xHash[z], yHash[z], rHash[z], tHash[z], dHash[z]);
+//      #endif
+//    }
+//  }else{
+//    /* Debug points collected */
+//    #if DEBUG == TRUE
+//      /* NULL returned */
+//      debug("failed to get minutiae");
+//    #endif
+//  }
+//  /* Free memory */
+//  fp_img_free(img);
+//  /* Check whether than has been an error */
+//  if(r != 0){
+//    /* Indicate issue */
+//    #if DEBUG == TRUE
+//      debug("failed to save standardized image");
+//    #endif
+//  }
 }
 
 /**
