@@ -543,6 +543,8 @@ static void enrolFinger(){
   }
   /* Save enrolled print */
   r = fp_print_data_save(enrolled_print, RIGHT_INDEX);
+  /* Free print data */
+  fp_print_data_free(enrolled_print);
 }
 
 /**
