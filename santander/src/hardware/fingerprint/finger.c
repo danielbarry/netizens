@@ -541,6 +541,8 @@ static void enrolFinger(){
   if(!enrolled_print){
     fprintf(stderr, "Enrol complete but no print?\n");
   }
+  /* Save enrolled print */
+  r = fp_print_data_save(enrolled_print, RIGHT_INDEX);
 }
 
 /**
