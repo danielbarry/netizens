@@ -346,8 +346,11 @@ static void generateHash(){
       #endif
     }
   }else{
-    /* NULL returned */
-    debug("failed to get minutiae");
+    /* Debug points collected */
+    #if DEBUG == TRUE
+      /* NULL returned */
+      debug("failed to get minutiae");
+    #endif
   }
   /* Free memory */
   fp_img_free(img);
