@@ -30,6 +30,8 @@ static bool openDevice();
 static bool closeDevice();
 static void saveImage();
 static void generateHash();
+static void checkFinger();
+static void enrolFinger();
 static void debug(const char* msg);
 static void displayHelp();
 static void displayVersion();
@@ -67,6 +69,8 @@ int main(int argc, char** argv){
   }
   /* Only start the devices that require starting */
   switch(opt){
+    case 'c' :
+    case 'e' :
     case 'g' :
     case 'i' :
       /* Ready hardware */
@@ -93,6 +97,14 @@ int main(int argc, char** argv){
   }
   /* Do specific task */
   switch(opt){
+    case 'c' :
+      /* Check finger */
+      checkFinger();
+      break;
+    case 'e' :
+      /* Enrol finger */
+      enrolFinger();
+      break;
     case 'g' :
       /* Generate hash */
       generateHash();
@@ -112,6 +124,8 @@ int main(int argc, char** argv){
       break;
   }
   switch(opt){
+    case 'c' :
+    case 'e' :
     case 'g' :
     case 'i' :
       okay = closeDevice();
@@ -448,6 +462,23 @@ static void generateHash(){
 }
 
 /**
+ * checkFinger()
+ *
+ * Checks a finger against one that has been enrolled for a match.
+ **/
+static void checkFinger(){
+  /* TODO: Write this code. */
+}
+
+/**
+ * enrolFinger()
+ *
+ * Enrols a finger into the finger database.
+ **/
+static void enrolFinger(){
+}
+
+/**
  * debug()
  *
  * Debug messages from this program which can be switch on and off using the
@@ -472,6 +503,8 @@ static void displayHelp(){
   printf("\n");
   printf("  OPTions\n");
   printf("\n");
+  printf("    -c    Check fingerprint\n");
+  printf("    -e    Enrol fingerprints\n");
   printf("    -g    Generate a fingerprint hash\n");
   printf("    -h    Display this message\n");
   printf("    -i    Generate a fingerprint image\n");
