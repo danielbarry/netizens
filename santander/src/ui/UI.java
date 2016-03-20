@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.lang.Class;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JFrame;
@@ -42,10 +44,26 @@ public class UI{
   private String inputBuffer;
 
   private String userPin;
-
-
-
   private String fingerprintMatch = "";
+  public int userAmount = 5000;
+
+  private Object getVariable(String n){
+    Class<?> objClass = UI.this.getClass();
+    Field[] fields = objClass.getFields();
+    for(Field field : fields){
+      String name = field.getName();
+      System.out.println("field -> " + name);
+      /* If we have a match, return it's object */
+      if(name.equals(n)){
+        try{
+          return field.get(UI.this);
+        }catch(IllegalAccessException e){
+          /* Do nothing */
+        }
+      }
+    }
+    return null;
+  }
 
   /**
    * UI()
@@ -140,8 +158,16 @@ public class UI{
       JLabel jLabel;
       switch(type){
         case "label" :
+          String labelText = elems.getString("text");
+          /* Check if text starts with dollar */
+          if(
+            labelText.charAt(0) == '$' &&
+            labelText.charAt(labelText.length() - 1) == '$'
+          ){
+            labelText = "" + (int)getVariable(labelText.substring(1, labelText.length() - 1));
+          }
           /* Create a JLabel and add text to it */
-          jLabel = new JLabel(elems.getString("text"), SwingConstants.CENTER);
+          jLabel = new JLabel(labelText, SwingConstants.CENTER);
           /* Must set opaque for the background colour to work */
           jLabel.setOpaque(true);
           /* Read and set the colours */
@@ -351,6 +377,16 @@ public class UI{
         }else{
           loadDisplay("errormsg");
         }
+        break;
+      case "selectammount" :
+        /* Cast input to number */
+        int select = Integer.parseInt(inputBuffer);
+        /* Loose money (unchecked) */
+        userAmount -= select;
+        /* Clear input buffer */
+        inputBuffer = "";
+        /* Load new display */
+        loadDisplay("wouldyoulikeareciept");
         break;
     }
   }
