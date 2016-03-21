@@ -48,6 +48,7 @@ public class UI{
   public int userAmount = 5000;
 
   private boolean firstRun = true;
+  private KeyAdapter keyAdapter;
 
   /**
    * getVariable()
@@ -260,22 +261,23 @@ public class UI{
       gui.revalidate();
       gui.paint(gui.getGraphics());
     }
+    if(!"pin".equals(name)){
+      gui.removeKeyListener(keyAdapter);
+    }
+    keyAdapter = new KeyAdapter() {
+        @Override
+        public void keyPressed(KeyEvent e) {
+          if("pin".equals(name)){
+            addText(e.getKeyChar() + "");
+          }
+        }
+    };
+    gui.addKeyListener(keyAdapter);
 
     if("card".equals(name)){
       String cardMatch = Hardware.getRFIDHash();
       Debug.println(cardMatch);
       loadDisplay("pin");
-    }
-
-    if("pin".equals(name) && firstRun){
-      firstRun = false;
-      inputBuffer = "";
-      gui.addKeyListener(new KeyAdapter() {
-          @Override
-          public void keyPressed(KeyEvent e) {
-            addText(e.getKeyChar() + "");
-          }
-      });
     }
 
     if("biometric".equals(name)){
