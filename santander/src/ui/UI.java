@@ -286,6 +286,13 @@ public class UI{
       Debug.println(fingerprintMatch);
       loadDisplay("checking");
     }
+
+    if("checking".equals(name)){
+      try{
+        Thread.sleep(3000);
+      }catch(Exception e){}
+      addText("");
+    }
   }
 
   /**
