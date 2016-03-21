@@ -261,6 +261,8 @@ public class UI{
       gui.revalidate();
       gui.paint(gui.getGraphics());
     }
+        inputBuffer = "";
+    
     if(!"pin".equals(name)){
       gui.removeKeyListener(keyAdapter);
     }
