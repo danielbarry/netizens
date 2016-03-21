@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.lang.Class;
 import java.lang.reflect.Field;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JFrame;
@@ -28,8 +30,6 @@ import java.io.InputStreamReader;
 import javax.swing.SwingUtilities;
 
 
-
-
 /**
  * UI.java
  *
@@ -46,6 +46,8 @@ public class UI{
   private String userPin;
   private String fingerprintMatch = "";
   public int userAmount = 5000;
+
+  private boolean firstRun = true;
 
   /**
    * getVariable()
@@ -265,6 +267,17 @@ public class UI{
       loadDisplay("pin");
     }
 
+    if("pin".equals(name) && firstRun){
+      firstRun = false;
+      inputBuffer = "";
+      gui.addKeyListener(new KeyAdapter() {
+          @Override
+          public void keyPressed(KeyEvent e) {
+            addText(e.getKeyChar() + "");
+          }
+      });
+    }
+
     if("biometric".equals(name)){
       fingerprintMatch = Hardware.getFingerHash();
       Debug.println(fingerprintMatch);
@@ -401,25 +414,4 @@ public class UI{
         break;
     }
   }
-
-  // public String executeCommand(String command){
-  //   System.out.println("Executing::" + command);
-  //   String output = "";
-
-  //   Process p;
-  //   try{
-  //     p = Runtime.getRuntime().exec(command);
-  //     p.waitFor();
-  //     BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-  //     String line = "";
-  //     while((line = reader.readLine()) != null){
-  //       output += line;
-  //     }
-  //   }catch(Exception e){
-  //     System.err.println(e);
-  //     // e.printStackTrace();
-  //   }
-
-  //   return output;
-  // }
 }
