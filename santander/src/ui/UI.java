@@ -261,7 +261,6 @@ public class UI{
       gui.revalidate();
       gui.paint(gui.getGraphics());
     }
-        inputBuffer = "";
     
     if(!"pin".equals(name)){
       gui.removeKeyListener(keyAdapter);
@@ -372,7 +371,7 @@ public class UI{
         break;
       default :
         /* Add the text to the buffer */
-        inputBuffer += text;
+        inputBuffer += text.trim();
         break;
     }
     /* Debug text to terminal */
