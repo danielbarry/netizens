@@ -618,11 +618,26 @@
             "back"     : "#E5E5E5",
             "colour"   : "#5E606B",
             "height"   : "0.2",
-            "left"     : "0.2",
+            "left"     : "0.3",
             "text"     : "$userAmount$",
             "top"      : "0.45",
             "type"     : "label",
-            "width"    : "0.6",
+            "width"    : "0.5",
+            "font"     : {
+              "name"      : "",
+              "style"     : "",
+              "size"      : "40"
+            }
+          },
+          {
+            "back"     : "#E5E5E5",
+            "colour"   : "#5E606B",
+            "height"   : "0.2",
+            "left"     : "0.2",
+            "text"     : "\u00A3",
+            "top"      : "0.45",
+            "type"     : "label",
+            "width"    : "0.1",
             "font"     : {
               "name"      : "",
               "style"     : "",
