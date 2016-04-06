@@ -11,13 +11,20 @@
 **/doc/*
 
 # Ignore extensions
+*.aux
 *.bin
 *.class
 *.cmake
+*.log
+*.nav
 *.ods
+*.out
 *.pdf
 *.pgm
+*.snm
 *.swp
+*.toc
+*.vrb
 
 # Vagrant
 .vagrant/
