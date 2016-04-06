@@ -1,0 +1,215 @@
+%###############################################################################
+% LaTeX Presentation for Netizens
+% Written by B[]
+%
+% -- Document Changes --
+% Date       | Name     | Changes
+% -----------|----------|-------------------------------------------------------
+% 2016/04/06 | B[]      | Created document
+%###############################################################################
+
+\documentclass{beamer}
+
+\usepackage{listings} % Allows for code blocks to be used
+\usepackage{textpos}  % Allows the logo to be inserted at a given position
+
+% Defines the colours to be used in the presentation
+\definecolor{secinhead}{RGB}{255,255,255}
+\definecolor{titlebg}{RGB}{40,40,40}
+\definecolor{frametitlefg}{RGB}{0,0,0}
+\setbeamercolor{secsubsec}{fg=secinhead,bg=black}
+\setbeamercolor{frametitle}{fg=secinhead,bg=titlebg}
+\setbeamercolor{title}{fg=frametitlefg}
+\setbeamercolor{titlelike}{fg=frametitlefg}
+
+% Define the formatting for the code blocks
+\lstset{
+  backgroundcolor=\color{white},
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  numbers=left,
+  numbersep=5pt,
+  numberstyle=\tiny\color{gray},
+  rulecolor=\color{black},
+}
+
+% Define the headline layout
+\setbeamertemplate{headline}
+{
+  \leavevmode
+  \hbox
+  {
+    \begin{beamercolorbox}[wd=\paperwidth,ht=8.25ex,dp=3.5ex]{secsubsec}
+      \raggedright
+      \hspace*{2em}
+      {\sffamily\Large\color{secinhead}\thesection.~\insertsection\hfill\insertsubsection}
+      \hspace*{2em}
+    \end{beamercolorbox}
+  }
+}
+
+% Define the frame title page
+\setbeamertemplate{frametitle}
+{
+  \vskip-3pt
+  \leavevmode
+  \hbox
+  {
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1.8ex,dp=1ex]{frametitle}
+      \raggedright\hspace*{2em}\small\insertframetitle
+    \end{beamercolorbox}
+  }
+}
+
+% Add the addition of the team logo
+\addtobeamertemplate{frametitle}{}
+{
+  \begin{textblock*}{100mm}(.7\textwidth,-2.2cm)
+    \includegraphics[height=1cm,width=1cm]{logo}
+  \end{textblock*}
+}
+
+% Add information about the project in particular
+\title[Crisis]{The title of the presentation}
+\subtitle{The main focus of the presentation}
+\author{
+  \includegraphics[height=2cm,width=2cm]{logo-black} \\
+  Netizens
+}
+\institute{
+  \inst{1}
+  Cyber Security
+  \\
+  Computer Science
+  \\
+  University of Hertfordshire
+}
+\date{Date here}
+
+\begin{document}
+  %#############################################################################
+  % Introduction section
+  %
+  % Description: The first section of slides.
+  %#############################################################################
+  \section*{}
+    %###########################################################################
+    % Title frame
+    %
+    % Description: The first page the readers will see.
+    %###########################################################################
+    \frame{\titlepage}
+  %#############################################################################
+  % Introduction section
+  %
+  % Description: The first section of slides.
+  %#############################################################################
+  \section{Introduction}
+    %###########################################################################
+    % Contents frame
+    %
+    % Description: The contents page for all major future sections.
+    %###########################################################################
+    \subsection{Contents}
+      \begin{frame}
+        \frametitle{Contents}
+        \tableofcontents[hideallsubsections]
+      \end{frame}
+    %###########################################################################
+    % What will be covered
+    %
+    % Description: What will be covered in this presentation.
+    %###########################################################################
+    \subsection{Overview}
+      \begin{frame}
+        \frametitle{Overview}
+        \textbf{TODO:} Explain what you are doing.
+      \end{frame}
+    %###########################################################################
+    % What the objectives are
+    %
+    % Description: What we aim to achieve with this presentation.
+    %###########################################################################
+    \subsection{Objectives}
+      \begin{frame}
+        \frametitle{Objectives}
+        \textbf{TODO:} Explain the outcome of all of this.
+      \end{frame}
+  %###########################################################################
+  % Main section
+  %
+  % Description: The main section of slides to deliver the content.
+  %###########################################################################
+  \section{Main section}
+    %#########################################################################
+    % Example use
+    %
+    % Description: Examples of how to do useful tasks.
+    %#########################################################################
+    \subsection{Examples}
+      \begin{frame}
+        \frametitle{Referencing}
+        Look here on how to generate presentations \cite{Autor1990}. Another
+        example of this system \cite{Jemand2000}.
+      \end{frame}
+      \begin{frame}[containsverbatim]
+        \frametitle{Example Code}
+        \begin{lstlisting}
+/**
+ * main()
+ *
+ * Main entry point of the program.
+ *
+ * @param args The arguments parsed to the program.
+ **/
+public static void main(String[] args){
+  /* Write code here */
+}
+        \end{lstlisting}
+      \end{frame}
+      \begin{frame}
+        \frametitle{Images}
+        Here, we can insert an image:
+        \\
+        \includegraphics[height=6cm,width=6cm]{logo-black}
+      \end{frame}
+  %###########################################################################
+  % Last section
+  %
+  % Description: The last section of slides, no breakdown is required in this
+  %              section.
+  %###########################################################################
+  \section{Wrapping Up}
+    %#########################################################################
+    % Thanks frame
+    %
+    % Description: Thanking the listener to make them feel the warm and
+    %              fuzzies.
+    %#########################################################################
+    \subsection{Thanks}
+      \begin{frame}
+        \frametitle{Thank You!}
+        Any questions?
+      \end{frame}
+    %#########################################################################
+    % References frame
+    %
+    % Description: The frame for the references.
+    %#########################################################################
+    \subsection{References}
+      \begin{frame}[allowframebreaks]
+        \frametitle{References}
+        \begin{thebibliography}{10}
+          \beamertemplatebookbibitems
+            \bibitem{Autor1990}
+              A.~Autor.
+              \newblock {\em Introduction to Giving Presentations}.
+              \newblock Klein-Verlag, 1990.
+          \beamertemplatearticlebibitems
+            \bibitem{Jemand2000}
+              S.~Jemand.
+              \newblock On this and that.
+              \newblock {\em Journal of This and That}, 2(1):50--100, 2000.
+        \end{thebibliography}
+      \end{frame}
+\end{document}
