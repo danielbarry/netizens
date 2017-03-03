@@ -8,7 +8,7 @@ import java.net.Socket;
  * The key is to "have fun".
  *
  * @author Netizens
- * @version [TIME] 15/03/2017
+ * @version 1300 on 15/03/2017 in LB154
  **/
 public class Event{
   private static String img = "104.20.208.21",
