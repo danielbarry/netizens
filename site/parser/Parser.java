@@ -114,7 +114,7 @@ public class Parser{
           first = -1;
           second = first;
           while((first = parsed.indexOf(match[0], first + 1)) >= 0){
-            second = parsed.indexOf(match[1], first + 1);
+            second = parsed.indexOf(match[1], first + 2);
             if(first < second){
               parsed =
                 parsed.substring(0, first) +
@@ -133,8 +133,8 @@ public class Parser{
           second = first;
           third = second;
           while((first = parsed.indexOf(match[0], first + 1)) >= 0){
-            second = parsed.indexOf(match[1], first + 1);
-            third = parsed.indexOf(match[2], second + 1);
+            second = parsed.indexOf(match[1], first + 2);
+            third = parsed.indexOf(match[2], second + 2);
             if(first < second && second < third){
               parsed =
                 parsed.substring(0, first) +
