@@ -15,6 +15,7 @@
 *.bin
 *.class
 *.cmake
+*.html
 *.log
 *.nav
 *.ods
