@@ -1,6 +1,6 @@
 # Fake News Challenge
 
-*Last updated: 21/03/2017*
+*Written by B[]; Last updated: 21/03/2017*
 
 ## Current State
 
