@@ -8,6 +8,9 @@
 Below is our not-so-detailed release of information until the end of the
 competition. Be sure to come back for more updates!
 
+More information about the competition can be seen
+[here](http://www.fakenewschallenge.org/).
+
 ## K-Nearest Algorithm
 
 Currently we are having some good success with the K-Nearest algorithm, scoring
