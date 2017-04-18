@@ -19,6 +19,11 @@ depending on how we vary how many neighbours we take into consideration.
 
 ![Classification Results](fnc-results.png)
 
+This initially identifies that our method works and that we are able to achieve
+good results with a simple nearest-neighbour clustering algorithm. The next
+step will be to find better classifiers and to experiment with different
+algorithms.
+
 ## Database
 
 Currently, we have a completely custom implementation for handling the database
