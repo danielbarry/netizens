@@ -9,12 +9,6 @@ body{
   margin: 16px 32px 16px 32px;
 }
 
-br{
-  display:block;
-  margin-top:10px;
-  line-height:22px;
-}
-
 div{
   background: #111;
   padding: 16px;
