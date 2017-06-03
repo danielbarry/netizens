@@ -17,7 +17,7 @@ Currently we are having some good success with the K-Nearest algorithm, scoring
 just over 85% in classification tests. The below diagram shows how results vary
 depending on how we vary how many neighbours we take into consideration.
 
-![Classification Results](fnc-results.png)
+![Classification Results](fake-news-challenge/fnc-results.png)
 
 This initially identifies that our method works and that we are able to achieve
 good results with a simple nearest-neighbour clustering algorithm. The next
