@@ -22,6 +22,10 @@ img{
   max-width: 100%;
 }
 
+img{
+  background-color: #000;
+}
+
 pre{
   background: #222;
   margin: 0px;
