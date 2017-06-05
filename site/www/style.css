@@ -15,6 +15,7 @@ div{
 }
 
 img{
+  background-color: #FFF;
   display: block;
   height: auto;
   margin: auto;
